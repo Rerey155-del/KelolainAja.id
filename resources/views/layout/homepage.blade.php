@@ -11,7 +11,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="font-poppins antialiased">
+<body class="font-poppins antialiased scroll-smooth">
     <section class="bg-white">
         <x-navbar></x-navbar>
         <main class="max-w-6xl mx-auto px-10 py-10">
@@ -39,54 +39,64 @@
 
         {{-- ============ Layanan Kami ================== --}}
 
-        <div class="h-[45rem] w-full bg-[rgb(255,70,85)]  p-20">
-            <div class="text-center #layanan text-white mb-8 flex flex-col items-center">
+        <div class="w-full bg-[rgb(255,70,85)] px-4 py-10 md:py-20 md:px-20" id="layanan">
+            <div class="text-center #layanan text-white mb-8 flex flex-col items-center sm:mt-12">
                 <h1 class="card-title text-2xl font-bold">Layanan Kami</h1>
-                <p class="text-lg">Bisnis Sukses Kelola Tanpa Stress</p>
+                <p class="text-lg sm:text-md">Bisnis Sukses Kelola Tanpa Stress</p>
+            </div>
+            <div data-aos="fade-up" class="grid grid-cols-1  md:grid-cols-3 gap-y-8 gap-x-6 px-4">
+                <div class="card bg-white shadow-xl rounded-xl w-full max-w-sm mx-auto">
+                    <figure class="p-3">
+                        <img src="/img/foto1.png" alt="Manajemen Media Sosial"
+                            class="rounded-xl w-full h-48 object-cover" />
+                    </figure>
+                    <div class="card-body px-4 pb-4">
+                        <h2 class="card-title text-black text-lg mb-2">Manajemen Media Sosial</h2>
+                        <p class="text-sm text-gray-700">
+                            Mengelola konten, jadwal posting, dan analisis performa media sosial untuk meningkatkan
+                            interaksi dan brand awareness bisnis Anda.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card bg-white shadow-xl rounded-xl w-full max-w-sm mx-auto">
+                    <figure class="p-3">
+                        <img src="/img/foto2.png" alt="Layanan Desain" class="rounded-xl w-full h-48 object-cover" />
+                    </figure>
+                    <div class="card-body px-4 pb-4">
+                        <h2 class="card-title text-black text-lg mb-2">Layanan Desain</h2>
+                        <p class="text-sm text-gray-700">
+                            Menyediakan desain logo, konten media sosial, dan materi promosi untuk membangun identitas
+                            visual yang kuat dan menarik.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card bg-white shadow-xl rounded-xl w-full max-w-sm mx-auto">
+                    <figure class="p-3">
+                        <img src="/img/foto3.png" alt="Manajemen E-commerce"
+                            class="rounded-xl w-full h-48 object-cover" />
+                    </figure>
+                    <div class="card-body px-4 pb-4">
+                        <h2 class="card-title text-black text-lg mb-2">Manajemen E-commerce</h2>
+                        <p class="text-sm text-gray-700">
+                            Membantu optimasi produk, pembuatan konten, pengelolaan promosi, hingga analisis performa,
+                            agar bisnis kamu tumbuh lebih cepat dan efektif.
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <div data-aos="fade-up" class="flex justify-center gap-12 px-12">
-                <div class="card bg-white w-[25rem] shadow-xl">
-                    <figure class="p-3">
-                        <img src="/img/foto1.png" alt="Shoes" class="rounded-xl w-[21rem]" />
-                    </figure>
-                    <div class="card-body ">
-                        <h2 class="card-title text-black">Manajemen Media Sosial</h2>
-                        <p>Mengelola konten, jadwal posting, dan analisis performa media sosial untuk meningkatkan
-                            interaksi dan brand awareness bisnis Anda</p>
-
-                    </div>
-                </div>
-                <div class="card bg-white w-[25rem] shadow-xl">
-                    <figure class="p-3">
-                        <img src="/img/foto2.png" alt="Shoes" class="rounded-xl w-[21rem]" />
-                    </figure>
-                    <div class="card-body ">
-                        <h2 class="card-title text-black">Layanan Desain</h2>
-                        <p>Menyediakan desain logo, konten media sosial, dan materi promosi untuk membangun identitas
-                            visual yang kuat dan menarik.</p>
-
-                    </div>
-                </div>
-                <div class="card bg-white w-[25rem] shadow-xl">
-                    <figure class="p-3">
-                        <img src="/img/foto3.png" alt="Shoes" class="rounded-xl w-[21rem]" />
-                    </figure>
-                    <div class="card-body ">
-                        <h2 class="card-title text-black">Manajemen E-commerce</h2>
-                        <p>Membantu optimasi produk, pembuatan konten, pengelolaan promosi, hingga analisis performa,
-                            agar bisnis kamu tumbuh lebih cepat dan efektif</p>
-
-                    </div>
-                </div>
-            </div>
         </div>
 
         {{-- ========= Keunggulan Kami ====================  --}}
 
-        <div class="container mx-auto grid grid-cols-2 p-20 justify-center items-center">
-            <div><img src="/img/Avatar2.png" data-aos="zoom-in-right" alt=""
-                    class="w-[30rem] h-[30rem] object-cover"></div>
+        <div class="container mx-auto grid grid-cols-1  md:grid-cols-2 gap-x-28 p-8 md:p-20 justify-center items-center"
+            id="keunggulan">
+            <div>
+                <img src="/img/Avatar2.png" data-aos="zoom-in-right" alt=""
+                    class="w-full max-w-xs sm:max-w-lg h-auto object-cover mx-auto">
+            </div>
             <div>
                 <div class="mb-6 text-black">
                     <h1 class="card-title">Keunggulan Kami</h1>
@@ -135,15 +145,17 @@
 
         {{-- ================== Alur pemesanan ============================ --}}
 
-        <div class="bg-[#FF4655]">
-            <div class="container mx-auto grid grid-cols-2 text-black p-20 gap-[12rem] justify-center  items-center">
+        <div class="bg-[#FF4655]" id="alurPemesanan">
+            <div
+                class="container mx-auto grid grid-cols-1 gap-12 md:grid-cols-2 text-black justify-center items-center px-4 py-10 md:px-12 md:py-20">
                 <div>
-                    <div class="mb-6 text-white">
-                        <h1 class="card-title text-xl">Alur Pemesanan</h1>
-                        <p class="text-lg">Berikut adalah alur pemesanan yang dapat digunakan untuk Kelolain Aja :</p>
+                    <div class="mb-6 text-white ">
+                        <p class="card-title text-sm sm:text-center md:text-xl font-semibold">Alur Pemesanan</p>
+                        <p class="text-xs md:text-lg mt-1">Berikut adalah alur pemesanan yang dapat digunakan untuk
+                            Kelolain Aja :</p>
                     </div>
                     <div class="grid gap-8" data-aos="zoom-in-right">
-                        <div class="card w-100 bg-white card-xs shadow-xl">
+                        <div class="card bg-white shadow-xl">
                             <div class="card-body flex flex-row items-center gap-4">
                                 <div>
                                     <img src="/img/kardus.png" class="w-[3rem] h-[3rem]">
@@ -154,7 +166,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card w-100 bg-white card-xs shadow-xl">
+                        <div class="card bg-white shadow-xl">
                             <div class="card-body flex flex-row items-center gap-4">
                                 <div>
                                     <img src="/img/pelayan.png" class="w-[3rem] h-[3rem]">
@@ -165,7 +177,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card w-100 bg-white card-xs shadow-xl">
+                        <div class="card bg-white shadow-xl">
                             <div class="card-body flex flex-row items-center gap-4">
                                 <div>
                                     <img src="/img/mobil.png" class="w-[3rem] h-[3rem]">
@@ -178,7 +190,8 @@
                         </div>
                     </div>
                 </div>
-                <div data-aos="zoom-in-left"><img src="/img/amico.png" alt="" class="w-auto object-cover">
+                <div data-aos="zoom-in-left">
+                    <img src="/img/amico.png" alt="" class="w-auto object-cover mx-auto">
                 </div>
             </div>
         </div>
@@ -195,31 +208,36 @@
             <h2 class="text-start text-black text-xl pt-8 px-14 text-lg font-bold">Paket Layanan Media Sosial</h2>
             <br>
             <div>
-                <div class="container mx-auto p-10 mt-[-2rem]">
+                <div class="container p-8 mx-auto md:p-10 mt-[-2rem]">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 ">
-                        @foreach( $mediaSosialPackages as $package)
-                        <div class="card w-96 bg-[#FF4655] shadow-2xl">
-                            <div class="card-body p-12">
-                                <h2 class="text-3xl font-bold text-white">{{ $package->name }}</h2>
-                                <ul class="mt-6 flex flex-col gap-4 text-lg text-white list-disc list-inside mb-10">
-                                    @foreach (explode(',', $package->description) as $desc)
-                                        <li class="text-xl marker:text-xl marker:text-white">{{ trim($desc) }}</li>
-                                    @endforeach
-                                </ul>
-                                <div class="flex justify-center gap-x-4">
-                                    <h2 class="text-black font-bold text-2xl line-through decoration-white">{{ $package->price}}</h2>
-                                    <h2 class="text-white text-4xl font-bold">{{ $package->price }}</h2>
+                        @foreach ($mediaSosialPackages as $package)
+                            <div class="card md:w-96 bg-[#FF4655] shadow-2xl">
+                                <div class="card-body p-12">
+                                    <h2 class="text-3xl font-bold text-white">{{ $package->name }}</h2>
+                                    <ul
+                                        class="mt-6 flex flex-col gap-4 text-lg text-white list-disc list-inside mb-10">
+                                        @foreach (explode(',', $package->description) as $desc)
+                                            <li class="text-xl marker:text-xl marker:text-white">{{ trim($desc) }}
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                    <div class="flex justify-center gap-x-4">
+                                        <h2 class="text-black font-bold text-2xl line-through decoration-white">
+                                            {{ $package->price }}</h2>
+                                        <h2 class="text-white text-4xl font-bold">{{ $package->price }}</h2>
+                                    </div>
+                                    <div class="flex justify-center mt-6">
+                                        <button
+                                            onclick="window.location.href='{{ route('deskripsiPaket', $package->id) }}}'"
+                                            class="bg-white text-[#FF4655] px-6 py-3 rounded-lg w-80 font-semibold hover:bg-red-600 hover:text-white transition">
+                                            Pesan Sekarang
+                                        </button>
+                                    </div>
+                                    <br>
+                                    <p class="text-white text-md text-center font-bold">1x Revisi/item | Add-on
+                                        (Revisi) 10k</p>
                                 </div>
-                                <div class="flex justify-center mt-6">
-                                    <button onclick="window.location.href='{{ route('deskripsiPaket', $package->id)  }}}'"
-                                        class="bg-white text-[#FF4655] px-6 py-3 rounded-lg w-80 font-semibold hover:bg-red-600 hover:text-white transition">
-                                        Pesan Sekarang
-                                    </button>
-                                </div>
-                                <br>
-                                <p class="text-white text-md text-center font-bold">1x Revisi/item | Add-on (Revisi) 10k</p>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -231,29 +249,33 @@
             <div>
                 <div class="container mx-auto p-10">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        @foreach($desainPackages as $package)
-                        <div class="card w-96 bg-white shadow-2xl ">
-                            <div class="card-body p-12">
-                                <h2 class="text-3xl font-bold text-[#FF4655]">{{ $package->name }}</h2>
-                                <ul class="mt-6 flex flex-col gap-4 text-lg text-[#FF4655] list-disc list-inside mb-10">
-                                    @foreach (explode(',', $package->description) as $desc)
-                                        <li class="text-xl marker:text-xl marker:text-[#FF4655]">{{ trim($desc) }}</li>
-                                    @endforeach
-                                </ul>
-                                <div class="flex justify-center gap-x-4">
-                                    <h2 class="text-black font-bold text-2xl line-through decoration-[#FF4655]s">{{ $package->price}}</h2>
-                                    <h2 class="text-[#FF4655] text-4xl font-bold">{{ $package->price }}</h2>
+                        @foreach ($desainPackages as $package)
+                            <div class="card md:w-96 bg-white shadow-2xl ">
+                                <div class="card-body p-12">
+                                    <h2 class="text-3xl font-bold text-[#FF4655]">{{ $package->name }}</h2>
+                                    <ul
+                                        class="mt-6 flex flex-col gap-4 text-lg text-[#FF4655] list-disc list-inside mb-10">
+                                        @foreach (explode(',', $package->description) as $desc)
+                                            <li class="text-xl marker:text-xl marker:text-[#FF4655]">
+                                                {{ trim($desc) }}</li>
+                                        @endforeach
+                                    </ul>
+                                    <div class="flex justify-center gap-x-4">
+                                        <h2 class="text-black font-bold text-2xl line-through decoration-[#FF4655]s">
+                                            {{ $package->price }}</h2>
+                                        <h2 class="text-[#FF4655] text-4xl font-bold">{{ $package->price }}</h2>
+                                    </div>
+                                    <div class="flex justify-center mt-6">
+                                        <button onclick="window.location.href='/package/{{ $package->id }}'"
+                                            class="bg-[#FF4655] text-white px-6 py-3 rounded-lg w-80 font-semibold hover:bg-red-600 hover:text-white transition">
+                                            Pesan Sekarang
+                                        </button>
+                                    </div>
+                                    <br>
+                                    <p class="text-[#FF4655] text-md text-center font-bold">1x Revisi/item | Add-on
+                                        (Revisi) 10k</p>
                                 </div>
-                                <div class="flex justify-center mt-6">
-                                    <button onclick="window.location.href='/package/{{ $package->id }}'"
-                                        class="bg-[#FF4655] text-white px-6 py-3 rounded-lg w-80 font-semibold hover:bg-red-600 hover:text-white transition">
-                                        Pesan Sekarang
-                                    </button>
-                                </div>
-                                <br>
-                                <p class="text-[#FF4655] text-md text-center font-bold">1x Revisi/item | Add-on (Revisi) 10k</p>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -269,7 +291,7 @@
                 <div class=" grid grid-cols-4 gap-8" data-aos="zoom-in-up">
                     @foreach ($videos as $video)
                         <div class="bg-white shadow-lg rounded-lg p-4">
-                            
+
                             <video width="320" height="240" controls class="rounded-lg">
                                 <source src="{{ asset('storage/' . $video->video_path) }}" type="video/mp4">
                                 Your browser does not support the video tag.
@@ -279,11 +301,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
         <x-footer></x-footer>
     </section>
 </body>

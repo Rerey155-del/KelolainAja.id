@@ -51,7 +51,7 @@
                 <br>
                 <p class="text-black">pesan :</p>
                 <input type="text" placeholder="Accent"
-                    class="input border-[#FF4655] focus:border-[#FF4655] bg-white w-[33rem] mb-8" />
+                    class="input border-[#FF4655] focus:border-[#FF4655] bg-white w-[33rem] mb-8 mt-2" />
 
                 <p class="font-bold text-black text-2xl mb-6">Metode Pembayaran : </p>
                 <div class="flex space-x-8">

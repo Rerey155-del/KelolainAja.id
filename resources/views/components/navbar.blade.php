@@ -7,7 +7,7 @@
       <ul class="menu menu-horizontal px-1">
           <li><a href="#layanan">Layanan</a></li>
           <li><a href="#keunggulan">Keunggulan</a></li>
-          <li><a href="#alur">Alur Pemesanan</a></li>
+          <li><a href="#alurPemesanan">Alur Pemesanan</a></li>
       </ul>
 
       @auth
