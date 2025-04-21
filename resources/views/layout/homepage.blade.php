@@ -39,7 +39,7 @@
 
         {{-- ============ Layanan Kami ================== --}}
 
-        <div class="w-full bg-[rgb(255,70,85)] px-4 py-10 md:py-20 md:px-20" id="layanan">
+        <div class="w-full bg-[rgb(255,70,85)] px-4 py-10 md:p-20" id="layanan">
             <div class="text-center #layanan text-white mb-8 flex flex-col items-center sm:mt-12">
                 <h1 class="card-title text-2xl font-bold">Layanan Kami</h1>
                 <p class="text-lg sm:text-md">Bisnis Sukses Kelola Tanpa Stress</p>
@@ -288,11 +288,10 @@
                 dengan
                 Kami</h1>
             <div class="container mx-auto">
-                <div class=" grid grid-cols-4 gap-8" data-aos="zoom-in-up">
+                <div class="flex overflow-x-auto gap-4 md:grid md:grid-cols-4 md:gap-8" data-aos="zoom-in-up">
                     @foreach ($videos as $video)
-                        <div class="bg-white shadow-lg rounded-lg p-4">
-
-                            <video width="320" height="240" controls class="rounded-lg">
+                        <div class="min-w-[16rem] bg-white shadow-lg rounded-lg flex-shrink p-4 min-w-0">
+                            <video width="100%" height="auto" controls class="rounded-lg">
                                 <source src="{{ asset('storage/' . $video->video_path) }}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
