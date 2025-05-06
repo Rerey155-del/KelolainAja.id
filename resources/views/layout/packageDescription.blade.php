@@ -12,7 +12,7 @@
 </head>
 
 <body class="bg-white overflow-x-hidden">
-    <section class="grid justify-center p-6 md:p-24">
+    <section class="grid justify-center py-20 md:p-16">
         <x-navbar></x-navbar>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
             <div class="flex flex-col">
@@ -21,8 +21,7 @@
                         <div class="card w-full md:w-96 bg-[#FF4655] shadow-2xl">
                             <div class="card-body p-6 md:p-12">
                                 <h2 class="text-2xl md:text-3xl font-bold text-white">{{ $paket->name }}</h2>
-                                <ul
-                                    class="mt-4 md:mt-6 flex flex-col gap-2 md:gap-4 text-base md:text-lg text-white list-disc list-inside mb-6 md:mb-10">
+                                <ul class="mt-4 md:mt-6 flex flex-col gap-2 md:gap-4 text-base md:text-lg text-white list-disc list-inside mb-6 md:mb-10">
                                     @foreach (explode(',', $paket->description) as $desc)
                                         <li class="marker:text-white">{{ trim($desc) }}</li>
                                     @endforeach
@@ -32,8 +31,7 @@
                                         {{ $paket->price }}</h2>
                                     <h2 class="text-white text-2xl md:text-4xl font-bold">{{ $paket->price }}</h2>
                                 </div>
-                                <p class="text-white text-center mt-4 text-sm md:text-md font-bold">1x Revisi/item |
-                                    Add-on (Revisi) 10k</p>
+                                <p class="text-white text-center mt-4 text-sm md:text-md font-bold">1x Revisi/item | Add-on (Revisi) 10k</p>
                             </div>
                         </div>
                     </div>
@@ -62,9 +60,7 @@
                     @foreach (['bca' => 'BCA', 'mandiri' => 'Mandiri', 'bni' => 'BNI', 'bri' => 'BRI', 'bsi' => 'BSI'] as $value => $label)
                         <label class="flex items-center space-x-2 cursor-pointer">
                             <input type="radio" name="bank" value="{{ $value }}" class="hidden peer">
-                            <div
-                                class="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-red-500 peer-checked:bg-red-500">
-                            </div>
+                            <div class="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-red-500 peer-checked:bg-red-500"></div>
                             <img src="/img/{{ $label }}.png" alt="{{ $label }}" class="w-10 md:w-12">
                             <span>Bank {{ $label }}</span>
                         </label>
@@ -77,9 +73,7 @@
                     @foreach (['gopay' => 'Gopay', 'dana' => 'Dana', 'ovo' => 'OVO'] as $img => $name)
                         <label class="flex items-center space-x-2 cursor-pointer">
                             <input type="radio" name="ewallet" value="{{ $img }}" class="hidden peer">
-                            <div
-                                class="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-red-500 peer-checked:bg-red-500">
-                            </div>
+                            <div class="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-red-500 peer-checked:bg-red-500"></div>
                             <img src="/img/{{ $img }}.png" alt="{{ $name }}" class="w-10 md:w-12">
                             <span>{{ $name }}</span>
                         </label>
@@ -91,7 +85,8 @@
                     <button class="btn btn-success w-full md:w-auto">Buat Pesanan</button>
                 </div>
             </div>
-        </div>
+        </div
+>
 </body>
 <script>
     AOS.init();

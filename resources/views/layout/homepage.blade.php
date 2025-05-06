@@ -15,9 +15,10 @@
     <section class="bg-white">
         <x-navbar></x-navbar>
         <main class="max-w-6xl mx-auto px-10 py-10">
-            <div data-aos="fade-up" class=" flex mt-14 flex-col md:flex-row items-center justify-between ">
+            <div data-aos="fade-up" class="flex flex-col md:flex-row items-center justify-between">
+
                 <div class="flex flex-col gap-6 text-gray-800">
-                    <h1 class="text-5xl font-bold leading-tight">
+                    <h1 class="mt-[78px] md:mt-0 text-5xl font-bold leading-tight">
                         Bisnis Sukses<br>Kelola Tanpa Stress<br>
                         di <span class="text-red-500">Kelolainaja</span>
                     </h1>
