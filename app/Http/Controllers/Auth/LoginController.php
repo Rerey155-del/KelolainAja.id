@@ -25,7 +25,7 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Salah kontol',
+            'email' => 'Salah penginputan data',
         ]);
     }
 
