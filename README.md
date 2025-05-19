@@ -26,12 +26,14 @@ Panduan ini akan membantu Anda menjalankan proyek Laravel ini secara lokal.
 ```php artisan key:generate```
 
 ## Periksa konfigurasi Database
+```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=KELO
 DB_USERNAME=root
 DB_PASSWORD=
+
 
 ## Jalankan Migrasi Database
 ```php artisan migrate```
