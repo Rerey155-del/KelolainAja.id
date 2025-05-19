@@ -5,7 +5,9 @@ Panduan ini akan membantu Anda menjalankan proyek Laravel ini secara lokal.
 ---
 
 ## 📥 Clone Repository
-git clone https://github.com/username/KelolainAja.id.git
+```git clone https://github.com/username/KelolainAja.id.git```
+
+### masukkan ke directory folder tersebut
 ```cd KelolainAja.id```
 
 ## Install Depedencies
