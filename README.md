@@ -38,6 +38,9 @@ DB_PASSWORD=
 ## Jalankan Migrasi Database
 ```php artisan migrate```
 
+## Lakukan pemanggilan video storage
+```php artisan storage:link```
+
 ## Jalankan Server Laravel
 ```php artisan serve```
 
