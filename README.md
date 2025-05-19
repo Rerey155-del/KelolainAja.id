@@ -12,7 +12,7 @@ cd KelolainAja.id
 composer install
 
 ##buka terminal kedua pada vscode dan install module 
-npm install
+```npm install```
 
 ##Jalankan modul vite nya
 npm run dev
