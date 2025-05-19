@@ -34,7 +34,7 @@ DB_DATABASE=KELO
 DB_USERNAME=root
 DB_PASSWORD=
 
-
+```
 ## Jalankan Migrasi Database
 ```php artisan migrate```
 
