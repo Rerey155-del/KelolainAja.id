@@ -50,6 +50,9 @@ Route::middleware(['auth:admin'])->group(function () {
     })->name('admin.pemesanan');
 
     Route::get('/admin/users', [UserController::class, 'user'])->name('admin.pengguna');
+    Route::get('/admin/videos', [VideoController::class, 'index'])->name('admin.videos');
+     // Tetap untuk menyimpan video via POST
+    Route::post('/upload', [VideoController::class, 'store'])->name('video.upload');
 
     Route::post('/logout/admin', [LoginAdminController::class, 'logout'])->name('admin.logout');
 });
@@ -62,12 +65,8 @@ Route::get('/upload', function () {
     return view('upload');
 });
 
-Route::post('/upload', [VideoController::class, 'store'])->name('video.store');
-
-
 // rute untuk menampilkan deskripsi isi data
 Route::get('/package/{id}', function ($id) {
     $paket = Package::findOrFail($id);
     return view('layout.packageDescription', compact('paket'));
 })->name('deskripsiPaket');
-

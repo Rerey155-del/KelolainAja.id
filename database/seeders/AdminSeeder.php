@@ -17,7 +17,7 @@ class AdminSeeder extends Seeder
             ['email' => 'iniakunsaya123@outlook.com'], // Cek apakah email sudah ada
             [
                 'name' => 'saya',
-                'password' => Hash::make('password123'),
+                'password' => Hash::make(''),
             ]
         );
 

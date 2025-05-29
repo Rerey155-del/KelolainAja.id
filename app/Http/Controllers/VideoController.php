@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
+
+
+    public function index()
+    {
+        return view('admin.videos'); // pastikan Blade ada di folder /resources/views/admin
+    }
+    
     // ================= MENAMPILKAN VIDEO ====================
     public function video()
     {

@@ -79,6 +79,11 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Users</span>
                 </a>
+                 <a class="nav-link collapsed" href="/admin/videos" data-target="#collapseTwo" aria-expanded="true"
+                    aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Videos</span>
+                </a>
             </li>
 
 

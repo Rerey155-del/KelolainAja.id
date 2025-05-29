@@ -18,8 +18,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-
     <title>KelolainAja - Dashboard</title>
 
     <!-- Custom fonts for this template-->
@@ -32,7 +30,6 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
-
 
 
 
@@ -80,7 +77,7 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Users</span>
                 </a>
-                 <a class="nav-link collapsed" href="/admin/videos" data-target="#collapseTwo" aria-expanded="true"
+                <a class="nav-link collapsed" href="/admin/videos" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Videos</span>
@@ -119,8 +116,8 @@
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -194,54 +191,34 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
 
-                    <!-- Content Row -->
-                    <div class="flex">
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-4">
-                            <div class="bg-white border-l-4 border-blue-500 shadow-lg rounded-lg p-4">
-                                <div class="flex items-center">
-                                    <div class="flex-1">
-                                        <p class="text-sm font-semibold text-blue-500 uppercase">Users</p>
-                                        <h2 class="text-2xl font-bold text-gray-800">{{ $totalUsers }}</h2>
-                                    </div>
-                                    <div class="text-gray-400">
-                                        <i class="fas fa-calendar fa-2x"></i>
-                                    </div>
-                                </div>
+                <div class="flex items-center justify-center bg-gray-100">
+                    <div
+                        class="text-center flex flex-col bg-[#FF4654] p-6 rounded-lg shadow-md w-96 text-white items-center">
+                        <h2 class="text-2xl font-bold mb-4">Upload Video</h2>
+                        <form action="{{ url('/upload') }}" method="POST" enctype="multipart/form-data" class="w-full">
+                            @csrf
+                            <div class="mb-4">
+                                <label for="title" class="block text-lg font-medium pb-2 text-left">Judul Video:</label>
+                                <input type="text" id="title" name="title" placeholder="Masukkan judul video"
+                                    class="input input-bordered w-full text-black" required>
                             </div>
-                        </div>
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-4">
-                            <div class="bg-white border-l-4 border-blue-500 shadow-lg rounded-lg p-4">
-                                <div class="flex items-center">
-                                    <div class="flex-1">
-                                        <p class="text-sm font-semibold text-blue-500 uppercase">Admins</p>
-                                        <h2 class="text-2xl font-bold text-gray-800">{{ $totalAdmins }}</h2>
-                                    </div>
-                                    <div class="text-gray-400">
-                                        <i class="fas fa-calendar fa-2x"></i>
-                                    </div>
-                                </div>
+
+                            <div class="mb-4">
+                                <label for="video" class="block text-lg font-medium mb-2 text-left">Pilih Video:</label>
+                                <fieldset class="border border-gray-300 rounded p-3 bg-white">
+                                    <input type="file" class="file-input file-input-bordered w-full" id="video"
+                                        name="video" accept="video/*" required>
+                                    <label class="block text-sm text-gray-500 mt-2">Maksimal ukuran 2MB</label>
+                                </fieldset>
                             </div>
-                        </div>
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-4">
-                            <div class="bg-white border-l-4 border-blue-500 shadow-lg rounded-lg p-4">
-                                <div class="flex items-center">
-                                    <div class="flex-1">
-                                        <p class="text-sm font-semibold text-blue-500 uppercase">Video</p>
-                                        <h2 class="text-2xl font-bold text-gray-800">{{ $totalVideos }}</h2>
-                                    </div>
-                                    <div class="text-gray-400">
-                                        <i class="fas fa-calendar fa-2x"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                            <button type="submit"
+                                class="btn bg-[#4300FF] text-white w-full hover:bg-gray-800">Upload</button>
+                        </form>
                     </div>
                 </div>
+
                 <!-- /.container-fluid -->
 
             </div>
