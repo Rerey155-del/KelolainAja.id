@@ -17,17 +17,17 @@ class AdminSeeder extends Seeder
             ['email' => 'iniakunsaya123@outlook.com'], // Cek apakah email sudah ada
             [
                 'name' => 'saya',
-                'password' => Hash::make(''),
+                'password' => Hash::make('1234'),
             ]
         );
 
-        // Admin::firstOrCreate(
-        //     ['email' => 'Reyhanganteng@gmail.com'], // Cek apakah email sudah ada
-        //     [
-        //         'name' => 'Reyhan',
-        //         'password' => Hash::make('Reyhanganteng@gmail.com'),
-        //     ]
-        // );
+        Admin::firstOrCreate(
+            ['email' => 'Reyhanganteng@gmail.com'], // Cek apakah email sudah ada
+            [
+                'name' => 'Reyhan',
+                'password' => Hash::make('Reyhanganteng@gmail.com'),
+            ]
+        );
         // Admin::firstOrCreate(
         //     ['email' => 'Rerey@gmail.com'], // Cek apakah email sudah ada
         //     [
