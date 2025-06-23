@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('content_calenders', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('status');
+            $table->string('category');
+            $table->text('attachments')->nullable();
+            $table->string('upload_for')->nullable();
+            $table->string('reference')->nullable();
+            $table->string('format');
+            $table->string('assignee');
             $table->timestamps();
         });
     }

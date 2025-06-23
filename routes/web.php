@@ -21,7 +21,7 @@ Route::get('/upload', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboardUser');
-});
+})->middleware('auth');
 
 // Route untuk register (pastikan nama file view benar)
 Route::get('/register', function () {

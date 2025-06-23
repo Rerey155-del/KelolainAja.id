@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('content_pillars', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
-            $table->integer('\);
-            $table->string('name');
-            $table->string('name');
+            $table->text('description')->nullable;
+            $table->integer('percentage');
+            $table->string('color');
+            $table->timestamps();
 
         });
     }

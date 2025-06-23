@@ -10,8 +10,12 @@ class ContentCalender extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'description',
-        'percentage',
-        'color'
+        'status',
+        'category',
+        'attachments',
+        'upload_for',
+        'reference',
+        'format',
+        'assignee',
     ];
 }
