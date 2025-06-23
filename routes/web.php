@@ -19,6 +19,10 @@ Route::get('/upload', function () {
     return view('upload');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboardUser');
+});
+
 // Route untuk register (pastikan nama file view benar)
 Route::get('/register', function () {
     return view('auth.registration');
