@@ -22,6 +22,12 @@ Route::get('/upload', function () {
 Route::get('/dashboard', function () {
     return view('dashboardUser');
 })->middleware('auth');
+Route::get('/contentCalendar', function () {
+    return view('contentCalendar');
+})->middleware('auth');
+Route::get('/contentPillar', function () {
+    return view('contentPillar');
+})->middleware('auth');
 
 // Route untuk register (pastikan nama file view benar)
 Route::get('/register', function () {

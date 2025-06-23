@@ -18,7 +18,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+
+
     <title>KelolainAja - Dashboard Pengguna</title>
+
     <!-- Custom fonts for this template-->
     @vite('resources/css/app.css')
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -63,16 +66,16 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="/dashboard" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo">
-                  <i class="fas fa-home w-5 mr-3"></i>
+                    <i class="fas fa-home w-5 mr-3"></i>
                     <span>Dashboard</span>
                 </a>
-                <a class="nav-link collapsed" href="/contentPillar" data-target="#collapseTwo" aria-expanded="true"
+                <a class="nav-link collapsed" href="" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo">
                     <i class="fas fa-columns w-5 mr-3"></i>
                     <span>Content Pillar</span>
                 </a>
                
-                <a class="nav-link collapsed" href="/contentCalendar" data-target="#collapseTwo" aria-expanded="true"
+                <a class="nav-link collapsed" href="" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Content Calendar</span>
