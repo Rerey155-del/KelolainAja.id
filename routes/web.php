@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegistController;
 use App\Http\Controllers\Auth\LoginAdminController;
+use App\Http\Controllers\ContentController;
 
 // Route untuk homepage
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
@@ -25,9 +26,9 @@ Route::get('/dashboard', function () {
 Route::get('/contentCalendar', function () {
     return view('contentCalendar');
 })->middleware('auth');
-Route::get('/contentPillar', function () {
-    return view('contentPillar');
-})->middleware('auth');
+
+Route::get('/contentPillar', [ContentController::class, 'index'])->name('contentPillar.index');
+Route::get('/contentCalendar', [ContentController::class, 'calendar'])->name('contentCalendar.index');
 
 // Route untuk register (pastikan nama file view benar)
 Route::get('/register', function () {

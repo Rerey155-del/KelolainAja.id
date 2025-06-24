@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('content_calenders', function (Blueprint $table) {
+        Schema::create('content_calendars', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('status');

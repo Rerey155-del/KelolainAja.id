@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\ContentPillar;
-use App\Models\ContentCalender;
+use App\Models\ContentCalendar; // Perbaiki dari ContentCalender ke ContentCalendar
 
 class ContentTableSeeder extends Seeder
 {
@@ -31,7 +31,7 @@ class ContentTableSeeder extends Seeder
                 'category' => 'Product Highlight',
                 'attachments' => '',
                 'upload_for' => '',
-                'reference' => 'https://www.instagram.co',
+                'reference' => 'https://www.instagram.com',
                 'format' => 'Foto',
                 'assignee' => 'Ryan',
             ],
@@ -41,7 +41,7 @@ class ContentTableSeeder extends Seeder
                 'category' => 'Product Knowledge',
                 'attachments' => '',
                 'upload_for' => '',
-                'reference' => 'https://www.instagram.co',
+                'reference' => 'https://www.instagram.com',
                 'format' => 'Foto',
                 'assignee' => 'Kelolalinga',
             ],
@@ -51,7 +51,7 @@ class ContentTableSeeder extends Seeder
                 'category' => 'Customer Testimonial',
                 'attachments' => '',
                 'upload_for' => '',
-                'reference' => 'https://id.pinterest.com/p',
+                'reference' => 'https://id.pinterest.com/pin/123',
                 'format' => 'Foto',
                 'assignee' => 'Kelolalinga',
             ],
@@ -61,7 +61,7 @@ class ContentTableSeeder extends Seeder
                 'category' => 'Lifestyle & Moment',
                 'attachments' => '',
                 'upload_for' => '',
-                'reference' => 'https://www.tiktok.com/@',
+                'reference' => 'https://www.tiktok.com/@user123',
                 'format' => 'Video',
                 'assignee' => 'Kelolalinga',
             ],
@@ -71,14 +71,14 @@ class ContentTableSeeder extends Seeder
                 'category' => 'Promo & Campaign',
                 'attachments' => '',
                 'upload_for' => '',
-                'reference' => 'https://id.pinterest.com/p',
+                'reference' => 'https://id.pinterest.com/pin/456',
                 'format' => 'Foto',
                 'assignee' => 'Rayhani',
             ],
         ];
 
         foreach ($calendarItems as $item) {
-            ContentCalender::create($item);
+            ContentCalendar::create($item);
         }
     }
 }
