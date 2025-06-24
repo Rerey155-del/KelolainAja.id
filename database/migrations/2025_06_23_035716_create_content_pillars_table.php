@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('percentage');
             $table->string('color');
             $table->timestamps();
-
         });
     }
 
