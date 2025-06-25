@@ -20,11 +20,16 @@ Route::get('/upload', function () {
     return view('upload');
 });
 
+Route::get('/admin/contentPillar', function(){
+    return view('/admin/contentPillar');
+});
+
+Route::get('/admin/contentCalendar', function(){
+    return view('/admin/contentCalendar');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboardUser');
-})->middleware('auth');
-Route::get('/contentCalendar', function () {
-    return view('contentCalendar');
 })->middleware('auth');
 
 Route::middleware(['auth'])->group(function () {

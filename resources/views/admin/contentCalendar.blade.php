@@ -82,12 +82,12 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Videos</span>
                 </a>
-                 <a class="nav-link collapsed" href="/admin/videos" data-target="#collapseTwo" aria-expanded="true"
+                <a class="nav-link collapsed" href="/admin/contentPillar" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Contant Pillar</span>
                 </a>
-                 <a class="nav-link collapsed" href="/admin/videos" data-target="#collapseTwo" aria-expanded="true"
+                <a class="nav-link collapsed" href="/admin/contentCalendar" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Contant Calendar</span>
@@ -203,30 +203,7 @@
                 <!-- Begin Page Content -->
 
                 <div class="flex items-center justify-center bg-gray-100">
-                    <div
-                        class="text-center flex flex-col bg-[#FF4654] p-6 rounded-lg shadow-md w-96 text-white items-center">
-                        <h2 class="text-2xl font-bold mb-4">Upload Video</h2>
-                        <form action="{{ url('/upload') }}" method="POST" enctype="multipart/form-data" class="w-full">
-                            @csrf
-                            <div class="mb-4">
-                                <label for="title" class="block text-lg font-medium pb-2 text-left">Judul Video:</label>
-                                <input type="text" id="title" name="title" placeholder="Masukkan judul video"
-                                    class="input input-bordered w-full text-black" required>
-                            </div>
 
-                            <div class="mb-4">
-                                <label for="video" class="block text-lg font-medium mb-2 text-left">Pilih Video:</label>
-                                <fieldset class="border border-gray-300 rounded p-3 bg-white">
-                                    <input type="file" class="file-input file-input-bordered w-full" id="video"
-                                        name="video" accept="video/*" required>
-                                    <label class="block text-sm text-gray-500 mt-2">Maksimal ukuran 2MB</label>
-                                </fieldset>
-                            </div>
-
-                            <button type="submit"
-                                class="btn bg-[#4300FF] text-white w-full hover:bg-gray-800">Upload</button>
-                        </form>
-                    </div>
                 </div>
 
                 <!-- /.container-fluid -->
