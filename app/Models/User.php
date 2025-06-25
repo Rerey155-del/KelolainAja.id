@@ -16,4 +16,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function contentPillar(){
+        return $this->hasMany(ContentPillar::class);
+    }
+    
+    public function contentCalendars(){
+        return $this->hasMany(ContentCalendar::class);
 }
