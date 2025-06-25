@@ -18,8 +18,8 @@ class ContentController extends Controller
 
     public function calendar()
     {
-        $calendars = ContentCalendar::all();
+        $calendars = ContentCalendar::where('user_id', auth()->id())->get();
          $users = User::all(); 
-        return view('contentCalendar', compact('calendars'));
+        return view('contentCalendar', compact('calendars', 'users'));
     }
 }
