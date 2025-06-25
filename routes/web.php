@@ -27,8 +27,10 @@ Route::get('/contentCalendar', function () {
     return view('contentCalendar');
 })->middleware('auth');
 
-Route::get('/contentPillar', [ContentController::class, 'index'])->name('contentPillar.index');
-Route::get('/contentCalendar', [ContentController::class, 'calendar'])->name('contentCalendar.index');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/contentPillar', [ContentController::class, 'index'])->name('contentPillar.index');
+    Route::get('/contentCalendar', [ContentController::class, 'calendar'])->name('contentCalendar.index');
+});
 
 // Route untuk register (pastikan nama file view benar)
 Route::get('/register', function () {
