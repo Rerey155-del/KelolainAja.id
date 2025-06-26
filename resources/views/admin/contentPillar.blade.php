@@ -124,7 +124,7 @@
                         <li class="relative">
                             <div class="dropdown dropdown-end">
                                 <button class="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-600 focus:ring-2 focus:ring-red-400">
-                                    <i class="fas fa-user-circle text-xl mr-2"></i> {{ Auth::user()->name }}
+                                    {{-- <i class="fas fa-user-circle text-xl mr-2"></i> {{ Auth::user()->name }} --}}
                                     <i class="fas fa-chevron-down ml-2 text-sm"></i>
                                 </button>
                                 <ul class="dropdown-content absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
