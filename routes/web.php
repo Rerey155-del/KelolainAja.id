@@ -19,6 +19,10 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/upload', function () {
     return view('upload');
 });
+Route::middleware(['auth'])->group(function () {
+    Route::get('/contentPillar', [ContentController::class, 'index'])->name('user.contentPillar');
+    Route::get('/contentCalendar', [ContentController::class, 'calendar'])->name('user.contentCalendar');
+});
 
 Route::get('/admin/contentUsers', function(){
     return view('/admin/contentPillar');
