@@ -85,9 +85,6 @@
             </nav>
             <br>
             <div class="container-fluid">
-                <button type="button" class="text-white bg-[#FF4655]  font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 bg-[#FF4655]">
-                    + Add New Calendar
-                </button>
                 
                 <div class="card shadow mb-4">
                     <div class="card-body">
@@ -103,7 +100,6 @@
                                         <th>Reference</th>
                                         <th>Format</th>
                                         <th>Assignee</th>
-                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -117,10 +113,7 @@
                                             <td><a href="{{ $calendar->reference }}" target="_blank" class="text-blue-600 hover:underline">{{ $calendar->reference ?? 'N/A' }}</a></td>
                                             <td>{{ $calendar->format }}</td>
                                             <td>{{ $calendar->assignee }}</td>
-                                            <td>
-                                                <a href="#" class="text-blue-600 hover:underline">Edit</a>
-                                                <a href="#" class="text-red-600 hover:underline ml-2">Delete</a>
-                                            </td>
+
                                         </tr>
                                     @endforeach
                                 </tbody>

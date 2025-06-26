@@ -10,7 +10,9 @@
     <title>KelolainAja - Dashboard Pengguna</title>
     @vite('resources/css/app.css')
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
     <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -28,19 +30,23 @@
             <hr class="sidebar-divider">
             <div class="sidebar-heading">Interface</div>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/dashboard" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="/dashboard" data-target="#collapseTwo" aria-expanded="true"
+                    aria-controls="collapseTwo">
                     <i class="fas fa-home w-5 mr-3"></i>
                     <span>Dashboard</span>
                 </a>
-                <a class="nav-link collapsed" href="/contentPillar" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="/contentPillar" data-target="#collapseTwo" aria-expanded="true"
+                    aria-controls="collapseTwo">
                     <i class="fas fa-columns w-5 mr-3"></i>
                     <span>Content Pillar</span>
                 </a>
-                <a class="nav-link collapsed" href="/contentCalendar" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="/contentCalendar" data-target="#collapseTwo" aria-expanded="true"
+                    aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Content Calendar</span>
                 </a>
-                <a class="nav-link collapsed" href="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="" data-target="#collapseTwo" aria-expanded="true"
+                    aria-controls="collapseTwo">
                     <i class="fas fa-dollar-sign w-5 mr-3"></i>
                     <span>Transactions</span>
                 </a>
@@ -53,7 +59,8 @@
 
         <div id="content-wrapper" class="d-flex flex-column">
             <nav class="bg-white shadow-md py-2 px-4 flex items-center justify-between">
-                <button id="sidebarToggleTop" class="md:hidden p-2 text-gray-600 hover:text-gray-900 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500">
+                <button id="sidebarToggleTop"
+                    class="md:hidden p-2 text-gray-600 hover:text-gray-900 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500">
                     <i class="fa fa-bars"></i>
                 </button>
                 <div class="flex flex-col">
@@ -64,14 +71,19 @@
                     <div class="hidden md:block w-px h-8 bg-gray-300"></div>
                     <div class="relative">
                         <div class="dropdown dropdown-end">
-                            <button class="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400" aria-label="User menu" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                            <button
+                                class="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
+                                aria-label="User menu" onclick="this.nextElementSibling.classList.toggle('hidden')">
                                 <i class="fas fa-user-circle text-xl mr-2"></i>
                                 {{ Auth::user()->name }}
                                 <i class="fas fa-chevron-down ml-2 text-sm"></i>
                             </button>
-                            <ul class="dropdown-content hidden absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                            <ul
+                                class="dropdown-content hidden absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
                                 <li>
-                                    <a href="#" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <a href="#"
+                                        class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <i class="fas fa-sign-out-alt fa-sm mr-2 text-gray-500"></i> Logout
                                     </a>
                                 </li>
@@ -85,9 +97,7 @@
             </nav>
             <br>
             <div class="container-fluid">
-                <button type="button" class="text-white bg-[#FF4655] font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-6">
-                    + Add New Pillar
-                </button>
+
                 <div class="card shadow mb-4">
                     <div class="card-body">
                         <div class="table-responsive">
@@ -98,7 +108,6 @@
                                         <th>Description</th>
                                         <th>Percentage</th>
                                         <th>Color</th>
-                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -107,11 +116,8 @@
                                             <td>{{ $pillar->name }}</td>
                                             <td>{{ $pillar->description }}</td>
                                             <td>{{ $pillar->percentage }}%</td>
-                                            <td><span class="inline-block w-4 h-4 rounded-full" style="background-color: {{ $pillar->color }};"></span></td>
-                                            <td>
-                                                <a href="#" class="text-blue-600 hover:underline">Edit</a>
-                                                <a href="#" class="text-red-600 hover:underline ml-2">Delete</a>
-                                            </td>
+                                            <td><span class="inline-block w-4 h-4 rounded-full"
+                                                    style="background-color: {{ $pillar->color }};"></span></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -133,4 +139,5 @@
     <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
 </body>
+
 </html>
