@@ -51,6 +51,11 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/dashboard', [ContentController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/get-content/{userId}', [ContentController::class, 'getContent'])->name('admin.getContent');
+});
+
 // Halaman login admin
 Route::get('/login/admin', [LoginAdminController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/login/admin', [LoginAdminController::class, 'login'])->name('admin.login.submit');

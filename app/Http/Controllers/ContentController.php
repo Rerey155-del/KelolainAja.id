@@ -22,4 +22,14 @@ class ContentController extends Controller
          $users = User::all(); 
         return view('contentCalendar', compact('calendars', 'users'));
     }
+
+    public function getContent($userId)
+{
+    $pillars = ContentPillar::where('user_id', $userId)->get();
+    $calendars = ContentCalendar::where('user_id', $userId)->get();
+    return response()->json([
+        'pillars' => $pillars,
+        'calendars' => $calendars,
+    ]);
+}
 }

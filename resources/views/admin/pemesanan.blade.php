@@ -86,13 +86,9 @@
                  <a class="nav-link collapsed" href="/admin/contentPillar" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Contant Pillar</span>
+                    <span>Content Mitra</span>
                 </a>
-                 <a class="nav-link collapsed" href="/admin/contentCalendar" data-target="#collapseTwo" aria-expanded="true"
-                    aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Contant Calendar</span>
-                </a>
+                
                 </a>
             </li>
 
