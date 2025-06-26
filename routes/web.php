@@ -20,7 +20,7 @@ Route::get('/upload', function () {
     return view('upload');
 });
 
-Route::get('/admin/contentPillar', function(){
+Route::get('/admin/contentUsers', function(){
     return view('/admin/contentPillar');
 });
 
@@ -32,10 +32,6 @@ Route::get('/dashboard', function () {
     return view('dashboardUser');
 })->middleware('auth');
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/contentPillar', [ContentController::class, 'index'])->name('contentPillar.index');
-    Route::get('/contentCalendar', [ContentController::class, 'calendar'])->name('contentCalendar.index');
-});
 
 // Route untuk register (pastikan nama file view benar)
 Route::get('/register', function () {
@@ -49,12 +45,6 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/auth/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/dashboard', [ContentController::class, 'index'])->name('admin.dashboard');
-    Route::get('/admin/get-content/{userId}', [ContentController::class, 'getContent'])->name('admin.getContent');
-});
 
 // Halaman login admin
 Route::get('/login/admin', [LoginAdminController::class, 'showLoginForm'])->name('admin.login');

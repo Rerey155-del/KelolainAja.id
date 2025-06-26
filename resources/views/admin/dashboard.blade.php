@@ -85,7 +85,7 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Videos</span>
                 </a>
-                 <a class="nav-link collapsed" href="/admin/contentPillar" data-target="#collapseTwo" aria-expanded="true"
+                 <a class="nav-link collapsed" href="/admin/contentUsers" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Contant Mitra</span>

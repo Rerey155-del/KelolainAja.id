@@ -27,7 +27,9 @@
     <!-- Custom fonts for this template-->
     @vite('resources/css/app.css')
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
@@ -39,6 +41,7 @@
             display: none;
             margin-top: 20px;
         }
+
         .table-container.active {
             display: block;
         }
@@ -58,27 +61,32 @@
             <hr class="sidebar-divider">
             <div class="sidebar-heading">Interface</div>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/admin/dashboard" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="/admin/dashboard" data-target="#collapseTwo" aria-expanded="true"
+                    aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Dashboard</span>
                 </a>
-                <a class="nav-link collapsed" href="/admin/tables" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="/admin/tables" data-target="#collapseTwo" aria-expanded="true"
+                    aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Pemesanan</span>
                 </a>
-                <a class="nav-link collapsed" href="/admin/users" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="/admin/users" data-target="#collapseTwo" aria-expanded="true"
+                    aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Users</span>
                 </a>
-                <a class="nav-link collapsed" href="/admin/videos" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="/admin/videos" data-target="#collapseTwo" aria-expanded="true"
+                    aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Videos</span>
                 </a>
-                <a class="nav-link collapsed" href="/admin/contentPillar" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="/admin/contentUsers" data-target="#collapseTwo" aria-expanded="true"
+                    aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Content Mitra</span>
                 </a>
-                
+
             </li>
             <hr class="sidebar-divider">
             <div class="text-center d-none d-md-inline">
@@ -92,9 +100,11 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -104,13 +114,17 @@
                     </form>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
                                                 <i class="fas fa-search fa-sm"></i>
@@ -123,18 +137,23 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <li class="relative">
                             <div class="dropdown dropdown-end">
-                                <button class="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-600 focus:ring-2 focus:ring-red-400">
+                                <button
+                                    class="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-600 focus:ring-2 focus:ring-red-400">
                                     {{-- <i class="fas fa-user-circle text-xl mr-2"></i> {{ Auth::user()->name }} --}}
                                     <i class="fas fa-chevron-down ml-2 text-sm"></i>
                                 </button>
-                                <ul class="dropdown-content absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                                <ul
+                                    class="dropdown-content absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
                                     <div class="border-t border-gray-200"></div>
                                     <li>
-                                        <a href="{{ route('admin.dashboard') }}" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 transition" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <a href="{{ route('admin.dashboard') }}"
+                                            class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             <i class="fas fa-sign-out-alt fa-sm mr-2 text-gray-500"></i> Logout
                                         </a>
                                     </li>
-                                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="hidden">
+                                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST"
+                                        class="hidden">
                                         @csrf
                                     </form>
                                 </ul>
@@ -147,11 +166,13 @@
                 <div class="container-fluid">
                     <!-- Dropdown Select Akun -->
                     <div class="mb-4">
-                        <label for="userSelect" class="block text-sm font-medium text-gray-700">Pilih Akun:</label>
-                        <select id="userSelect" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                        <label for="userSelect" class="block text-sm font-medium text-white">Pilih Akun:</label>
+                        <select id="userSelect"
+                            class="mt-1 block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md bg-[#FF4655] text-white">
                             <option value="">Pilih Akun</option>
                             @foreach ($users as $user)
-                                <option value="{{ $user->user_id }}">{{ $user->name }}</option>
+                                <option value="{{ $user->user_id }}" class="bg-[#FF4655] text-white">{{ $user->name }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -179,8 +200,11 @@
                                                         <td>{{ $pillar->name }}</td>
                                                         <td>{{ $pillar->description }}</td>
                                                         <td>{{ $pillar->percentage }}%</td>
-                                                        <td><span class="inline-block w-4 h-4 rounded-full" style="background-color: {{ $pillar->color }};"></span></td>
-                                                        <td><a href="#" class="text-blue-600 hover:underline">Edit</a> <a href="#" class="text-red-600 hover:underline ml-2">Delete</a></td>
+                                                        <td><span class="inline-block w-4 h-4 rounded-full"
+                                                                style="background-color: {{ $pillar->color }};"></span></td>
+                                                        <td><a href="#" class="text-blue-600 hover:underline">Edit</a> <a
+                                                                href="#" class="text-red-600 hover:underline ml-2">Delete</a>
+                                                        </td>
                                                     </tr>
                                                 @endif
                                             @endforeach
@@ -204,7 +228,7 @@
                                                 <th>Status</th>
                                                 <th>Category</th>
                                                 <th>Action</th>
-                                                
+
                                             </tr>
                                         </thead>
                                         <tbody id="calendarTableBody">
@@ -216,12 +240,16 @@
                                                         <td>{{ $calendar->category }}</td>
                                                         <td>
                                                             @if($calendar->attachments)
-                                                                <img src="{{ asset('storage/' . $calendar->attachments) }}" alt="{{ $calendar->name }}" style="max-width: 100px; max-height: 100px;">
+                                                                <img src="{{ asset('storage/' . $calendar->attachments) }}"
+                                                                    alt="{{ $calendar->name }}"
+                                                                    style="max-width: 100px; max-height: 100px;">
                                                             @else
                                                                 <span>No Image</span>
                                                             @endif
                                                         </td>
-                                                        <td><a href="#" class="text-blue-600 hover:underline">Edit</a> <a href="#" class="text-red-600 hover:underline ml-2">Delete</a></td>
+                                                        <td><a href="#" class="text-blue-600 hover:underline">Edit</a> <a
+                                                                href="#" class="text-red-600 hover:underline ml-2">Delete</a>
+                                                        </td>
                                                     </tr>
                                                 @endif
                                             @endforeach
@@ -266,7 +294,7 @@
 
     <!-- Tambahkan JavaScript untuk memperbarui tabel -->
     <script>
-        document.getElementById('userSelect').addEventListener('change', function() {
+        document.getElementById('userSelect').addEventListener('change', function () {
             const userId = this.value;
             const pillarTable = document.getElementById('pillarTable');
             const calendarTable = document.getElementById('calendarTable');
@@ -281,12 +309,12 @@
             @foreach ($allPillars as $pillar)
                 if (userId == {{ $pillar->user_id }}) {
                     const row = `<tr>
-                        <td>{{ $pillar->name }}</td>
-                        <td>{{ $pillar->description }}</td>
-                        <td>{{ $pillar->percentage }}%</td>
-                        <td><span class="inline-block w-4 h-4 rounded-full" style="background-color: {{ $pillar->color }};"></span></td>
-                        <td><a href="#" class="text-blue-600 hover:underline">Edit</a> <a href="#" class="text-red-600 hover:underline ml-2">Delete</a></td>
-                    </tr>`;
+                            <td>{{ $pillar->name }}</td>
+                            <td>{{ $pillar->description }}</td>
+                            <td>{{ $pillar->percentage }}%</td>
+                            <td><span class="inline-block w-4 h-4 rounded-full" style="background-color: {{ $pillar->color }};"></span></td>
+                            <td><a href="#" class="text-blue-600 hover:underline">Edit</a> <a href="#" class="text-red-600 hover:underline ml-2">Delete</a></td>
+                        </tr>`;
                     pillarTableBody.innerHTML += row;
                 }
             @endforeach
@@ -295,12 +323,12 @@
             @foreach ($allCalendars as $calendar)
                 if (userId == {{ $calendar->user_id }}) {
                     const row = `<tr>
-                        <td>{{ $calendar->name }}</td>
-                        <td>{{ $calendar->status }}</td>
-                        <td>{{ $calendar->category }}</td>
-                       
-                        <td><a href="#" class="text-blue-600 hover:underline">Edit</a> <a href="#" class="text-red-600 hover:underline ml-2">Delete</a></td>
-                    </tr>`;
+                            <td>{{ $calendar->name }}</td>
+                            <td>{{ $calendar->status }}</td>
+                            <td>{{ $calendar->category }}</td>
+
+                            <td><a href="#" class="text-blue-600 hover:underline">Edit</a> <a href="#" class="text-red-600 hover:underline ml-2">Delete</a></td>
+                        </tr>`;
                     calendarTableBody.innerHTML += row;
                 }
             @endforeach
@@ -320,4 +348,5 @@
         });
     </script>
 </body>
+
 </html>
