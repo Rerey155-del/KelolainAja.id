@@ -10,11 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ContentController extends Controller
 {
-    /**
-     * Menampilkan daftar Content Pillar untuk pengguna yang sedang login.
-     *
-     * @return \Illuminate\View\View
-     */
     public function index()
     {
         $userId = Auth::id(); // Ambil ID pengguna yang login
