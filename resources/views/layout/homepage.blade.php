@@ -240,10 +240,10 @@
                                                 @endforeach
                                             </ul>
                                             <div class="flex justify-center gap-x-4">
-                                                <h2 class="text-black font-bold text-2xl line-through decoration-white">
-                                                    Rp. {{ $package->price }}
+                                                <h2 class="text-black font-bold text-lg line-through decoration-white">
+                                                    Rp.{{ $package->price }}
                                                 </h2>
-                                                <h2 class="text-white text-4xl font-bold">Rp. {{ $package->price }}</h2>
+                                                <h2 class="text-white text-3xl font-bold">Rp.{{ $package->price }}</h2>
                                             </div>
                                         </div>
                                         <div class="mt-6">
@@ -326,10 +326,10 @@
                                         @endforeach
                                     </ul>
                                     <div class="flex justify-center gap-x-4">
-                                        <h2 class="text-black font-bold text-2xl line-through decoration-[#FF4655]s">
+                                        <h2 class="text-black font-bold text-xl line-through decoration-[#FF4655]s">
                                             {{ $package->price }}
                                         </h2>
-                                        <h2 class="text-[#FF4655] text-4xl font-bold">{{ $package->price }}</h2>
+                                        <h2 class="text-[#FF4655] text-3xl font-bold">{{ $package->price }}</h2>
                                     </div>
                                     <div class="flex justify-center mt-6">
                                         <button onclick="window.location.href='/package/{{ $package->id }}'"
