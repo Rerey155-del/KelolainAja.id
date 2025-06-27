@@ -9,10 +9,11 @@
     @vite('resources/css/app.css')
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 
 <body class="bg-white overflow-x-hidden">
-    <section class="grid justify-center py-20 md:p-16">
+    <section class="min-h-screen grid justify-center py-20 md:p-16 bg-white">
         <x-navbar></x-navbar>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
             <div class="flex flex-col">
@@ -45,8 +46,7 @@
                 <p class="text-[#FF4655] mb-4">Harga : Rp.{{ $paket->price }}</p>
 
                 <p class="text-black">Pesan :</p>
-                <input type="text" placeholder="Accent"
-                    class="input border-[#FF4655] bg-white w-full md:w-[33rem] mt-2 mb-6" />
+                <input type="text" placeholder="Accent" class="input border-[#FF4655] bg-white w-full md:w-[33rem] mt-2 mb-6" />
 
                 <p class="font-bold text-black text-xl md:text-2xl mb-4">Metode Pembayaran:</p>
                 <div class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
@@ -82,26 +82,70 @@
 
                 <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 mt-8">
                     <button class="btn btn-outline w-full md:w-auto">Rp.{{ $paket->price }}</button>
-                    <button class="btn btn-success w-full md:w-auto">Buat Pesanan</button>
+                    <button class="btn btn-success w-full md:w-auto" id="orderButton">Buat Pesanan</button>
                 </div>
             </div>
-        </div
->
+        </div>
+    </section>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     AOS.init();
-</script>
 
-<script>
+    // Check if user is not logged in
+    @if (!Auth::check())
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                title: 'Please Login',
+                text: 'You need to login to proceed with the order.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login Now',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '{{ route('login') }}';
+                }
+            });
+        });
+    @endif
+
+    // Handle payment method toggling
     document.getElementById("btnBank").addEventListener("click", function() {
         document.getElementById("transferBank").classList.remove("hidden");
         document.getElementById("eWallet").classList.add("hidden");
+    });
 
-    })
     document.getElementById("btnEwallet").addEventListener("click", function() {
         document.getElementById("eWallet").classList.remove("hidden");
         document.getElementById("transferBank").classList.add("hidden");
-    })
-</script>
+    });
 
+    // Handle order button click
+    document.getElementById('orderButton')?.addEventListener('click', function() {
+        @if (!Auth::check())
+            Swal.fire({
+                title: 'Please Login',
+                text: 'You need to login to place an order.',
+                icon: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Login Now'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '{{ route('login') }}';
+                }
+            });
+        @else
+            // Add your order submission logic here if logged in
+            Swal.fire({
+                title: 'Order Placed',
+                text: 'Your order has been submitted successfully!',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        @endif
+    });
+</script>
 </html>
