@@ -240,7 +240,7 @@
                                                 @endforeach
                                             </ul>
                                             <div class="flex justify-center gap-x-4">
-                                                <h2 class="text-black font-bold text-lg line-through decoration-white">
+                                                <h2 class="text-black font-bold text-lg line-through decoration-yellow-400">
                                                     Rp.{{ $package->price }}
                                                 </h2>
                                                 <h2 class="text-white text-3xl font-bold">Rp.{{ $package->price }}</h2>
