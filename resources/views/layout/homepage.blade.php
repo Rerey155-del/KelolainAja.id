@@ -28,7 +28,7 @@
                     </p>
                     <button
                         class="bg-red-500 text-white p-5 rounded-lg font-bold hover:bg-red-600 transition w-[15rem]">
-                        Find Out More
+                        Lihat selengkapnya
                     </button>
                 </div>
                 <div>
@@ -206,43 +206,107 @@
                 <h1 class="font-bold ">Paket Mana yang Sesuai dengan Kebutuhan Anda?</h1>
             </div>
             {{-- ======== paket medsos ================= --}}
-            <h2 class="text-start text-black text-xl pt-8 px-14 text-lg font-bold">Paket Layanan Media Sosial</h2>
+            <div>
+                <h2 class="text-start text-black text-xl pt-8 px-14 text-lg font-bold">Paket Layanan Media Sosial</h2>
+                <div class="px-14 pt-6 ">
+                    <button onclick="showSection('standar')"
+                        class="px-4 py-2 bg-[#FF4655] hover:bg-red-600 text-white rounded-lg transition-colors">
+                        Standar
+                    </button>
+                    <button onclick="showSection('custom')"
+                        class="px-4 py-2 bg-[#FF4655] hover:bg-red-600 text-white rounded-lg transition-colors">
+                        Custom
+                    </button>
+                </div>
+            </div>
+
             <br>
             <div>
-                <div class="container p-8 mx-auto md:p-10 mt-[-2rem]">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 ">
-                        @foreach ($mediaSosialPackages as $package)
-                            <div class="card md:w-96 bg-[#FF4655] shadow-2xl">
-                                <div class="card-body p-12">
-                                    <h2 class="text-3xl font-bold text-white">{{ $package->name }}</h2>
+                <!-- STANDAR SECTION -->
+                <div id="standar-section">
+                    <div class="container p-8 mx-auto md:p-10 mt-[-2rem]">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+                            @foreach ($mediaSosialPackages as $package)
+                                <div class="card md:w-96 bg-[#FF4655] shadow-2xl h-full">
+                                    <div class="card-body p-12 flex flex-col justify-between h-full">
+                                        <div>
+                                            <h2 class="text-3xl font-bold text-white">{{ $package->name }}</h2>
+                                            <ul
+                                                class="mt-6 flex flex-col gap-4 text-lg text-white list-disc list-inside mb-10">
+                                                @foreach (explode(',', $package->description) as $desc)
+                                                    <li class="text-xl marker:text-xl marker:text-white">
+                                                        {{ trim($desc) }}
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                            <div class="flex justify-center gap-x-4">
+                                                <h2 class="text-black font-bold text-2xl line-through decoration-white">
+                                                    Rp. {{ $package->price }}
+                                                </h2>
+                                                <h2 class="text-white text-4xl font-bold">Rp. {{ $package->price }}</h2>
+                                            </div>
+                                        </div>
+                                        <div class="mt-6">
+                                            <div class="flex justify-center">
+                                                <button
+                                                    onclick="window.location.href='{{ route('deskripsiPaket', $package->id) }}'"
+                                                    class="bg-white text-[#FF4655] px-6 py-3 rounded-lg w-80 font-semibold hover:bg-red-600 hover:text-white transition">
+                                                    Pesan Sekarang
+                                                </button>
+                                            </div>
+                                            <p class="text-white text-md text-center font-bold mt-4">
+                                                1x Revisi/item | Add-on (Revisi) 10k
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CUSTOM SECTION (PINDAHKAN KELUAR DARI #standar-section) -->
+                <div id="custom-section" class="hidden mt-10">
+                    <div class="flex justify-center">
+                        <div class="card md:w-96 bg-[#FF4655] shadow-2xl h-full">
+                            <div class="card-body p-12 flex flex-col justify-between h-full">
+                                <div>
+                                    <h2 class="text-3xl font-bold text-white">Paket Custom<br>(Media Sosial)</h2>
                                     <ul class="mt-6 flex flex-col gap-4 text-lg text-white list-disc list-inside mb-10">
-                                        @foreach (explode(',', $package->description) as $desc)
-                                            <li class="text-xl marker:text-xl marker:text-white">{{ trim($desc) }}
-                                            </li>
-                                        @endforeach
+                                        <li class="text-xl marker:text-white">Custom Konten Sesuai Permintaan</li>
+                                        <li class="text-xl marker:text-white">Jumlah Feeds, Reels, dan Stories Bebas
+                                        </li>
+                                        <li class="text-xl marker:text-white">Brief & Diskusi Langsung</li>
+                                        <li class="text-xl marker:text-white">Bisa Multi Platform</li>
                                     </ul>
                                     <div class="flex justify-center gap-x-4">
-                                        <h2 class="text-black font-bold text-2xl line-through decoration-white">
-                                            {{ $package->price }}
+                                        <h2 class="text-black font-bold text-2xl line-through decoration-white">550000
                                         </h2>
-                                        <h2 class="text-white text-4xl font-bold">{{ $package->price }}</h2>
+                                        <h2 class="text-white text-4xl font-bold">550000</h2>
                                     </div>
-                                    <div class="flex justify-center mt-6">
-                                        <button
-                                            onclick="window.location.href='{{ route('deskripsiPaket', $package->id) }}}'"
+                                </div>
+                                <div class="mt-6">
+                                    <div class="flex justify-center">
+                                        <button onclick="window.location.href='#'"
                                             class="bg-white text-[#FF4655] px-6 py-3 rounded-lg w-80 font-semibold hover:bg-red-600 hover:text-white transition">
-                                            Pesan Sekarang
+                                            Hubungi Kami
                                         </button>
                                     </div>
-                                    <br>
-                                    <p class="text-white text-md text-center font-bold">1x Revisi/item | Add-on
-                                        (Revisi) 10k</p>
+                                    <p class="text-white text-md text-center font-bold mt-4">
+                                        Revisi dan Konten Bisa Disesuaikan
+                                    </p>
                                 </div>
                             </div>
-                        @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
 
             {{-- ============ paket desain =================== --}}
 
@@ -282,6 +346,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
         {{-- Portofolio Kami --}}
@@ -306,6 +371,21 @@
 </body>
 <script>
     AOS.init();
+</script>
+
+<script>
+    function showSection(type) {
+        const standar = document.getElementById('standar-section');
+        const custom = document.getElementById('custom-section');
+
+        if (type === 'standar') {
+            standar.classList.remove('hidden');
+            custom.classList.add('hidden');
+        } else {
+            standar.classList.add('hidden');
+            custom.classList.remove('hidden');
+        }
+    }
 </script>
 
 </html>

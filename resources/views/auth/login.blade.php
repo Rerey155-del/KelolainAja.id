@@ -8,39 +8,39 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     @vite('resources/css/app.css')
-   
-    
 </head>
-<body>
-    <div  class="min-h-screen flex flex-cols-2 bg-white items-center gap-x-16"> 
-        <div data-aos="fade-in-right">
-           <img src="/img/Pola1.png" class="h-[40.1rem]">
+<body class="bg-gray-100">
+    <div class="min-h-screen flex flex-col md:flex-row items-center justify-center gap-6 p-4">
+        <!-- Gambar (Tampilan Desktop) -->
+        <div class="w-full md:w-1/2 lg:w-2/5 hidden md:block" data-aos="fade-in-right">
+            <img src="/img/Pola1.png" class="w-full h-auto max-h-[40.1rem] object-cover rounded-lg shadow-lg">
         </div>
-        <form  data-aos="zoom-in-right" action="/auth/login" method="POST" class="w-96 flex flex-col justify-center items-center">
-            @csrf
-            <h1 class="font-bold text-black text-2xl pb-8">Login</h1>
-            <input type="email" name="email" class="w-full h-14 bg-red-100 border-none rounded-lg px-8 text-sm font-medium text-red-500 mb-5 placeholder-gray-500" placeholder="Email" required>
-    
-            <input type="password" name="password" class="w-full h-14 bg-red-100 border-none rounded-lg px-8 text-sm font-medium text-red-500 mb-5 placeholder-gray-500" placeholder="Password" required>
-    
-            <button type="submit" class="w-full h-14 bg-red-500 text-white text-sm font-medium rounded-lg hover:bg-red-600 transition mb-5">Login</button>
-            <a href="#" class="pb-12">Forgot Password?</a>
 
-            <a href="/register">Create your account</a>
-            @if ($errors->any())
-                <div class="text-red-500 text-sm mt-2">
-                    @foreach ($errors->all() as $error)
-                        <p>{{ $error }}</p>
-                    @endforeach
-                </div>
-            @endif
-        </form>
-    </div> 
+        <!-- Form Login -->
+        <div class="w-full md:w-1/2 lg:w-1/3" data-aos="zoom-in-right">
+            <form action="/auth/login" method="POST" class="p-6 md:p-8 flex flex-col justify-center items-center">
+                @csrf
+                <h1 class="font-bold text-black text-2xl md:text-3xl pb-4 md:pb-6">Login</h1>
+                <input type="email" name="email" class="w-full h-12 md:h-14 bg-red-100 border-none rounded-lg px-4 md:px-6 text-sm md:text-base font-medium text-red-500 mb-4 md:mb-5 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Email" required>
+                <input type="password" name="password" class="w-full h-12 md:h-14 bg-red-100 border-none rounded-lg px-4 md:px-6 text-sm md:text-base font-medium text-red-500 mb-4 md:mb-5 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Password" required>
+                <button type="submit" class="w-full h-12 md:h-14 bg-red-500 text-white text-sm md:text-base font-medium rounded-lg hover:bg-red-600 transition-colors mb-4 md:mb-5">Login</button>
+                <a href="#" class="text-sm md:text-base text-red-500 hover:underline pb-4 md:pb-6">Forgot Password?</a>
+                <a href="/register" class="text-sm md:text-base text-red-500 hover:underline">Create your account</a>
+                @if ($errors->any())
+                    <div class="text-red-500 text-sm mt-2">
+                        @foreach ($errors->all() as $error)
+                            <p>{{ $error }}</p>
+                        @endforeach
+                    </div>
+                @endif
+            </form>
+        </div>
+    </div>
+    <script>
+        AOS.init({
+            duration: 1000, // Durasi animasi (opsional)
+            once: true, // Animasi hanya sekali saat di-scroll
+        });
+    </script>
 </body>
-<script>
-    AOS.init();
-</script>
-
 </html>
-
-
