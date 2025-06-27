@@ -1,75 +1,85 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="id">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pembayaran</title>
+    @vite('resources/css/app.css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
 
-@section('content')
-    <div class="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-md w-full bg-white shadow-lg rounded-lg p-8">
-            <div class="mb-6 text-center">
-                <h2 class="text-3xl font-extrabold text-gray-900">Pembayaran</h2>
-                <p class="mt-2 text-sm text-gray-600">Isi detail berikut untuk memproses pembayaran Anda</p>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4">
+
+    <div class="w-full max-w-md bg-white shadow-md rounded-xl p-6 sm:p-8">
+        <div class="text-center mb-6">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-800">Form Pembayaran</h2>
+            <p class="mt-1 text-sm text-gray-500">Silakan isi data berikut untuk memproses pembayaran.</p>
+        </div>
+
+        <form class="space-y-5" action="{{ route('payment.store') }}" method="POST">
+            @csrf
+
+            <!-- Nama -->
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+                <input type="text" id="name" name="name" value="{{ old('name') }}" required
+                    placeholder="Contoh: Budi Santoso"
+                    class="mt-1 block w-full px-4 py-2 text-sm border border-gray-300 rounded-lg bg-white focus:ring-indigo-500 focus:border-indigo-500">
+                @error('name')
+                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <!-- Email -->
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" name="email" value="{{ old('email') }}" required
+                    placeholder="Contoh: budi@example.com"
+                    class="mt-1 block w-full px-4 py-2 text-sm border border-gray-300 rounded-lg bg-white focus:ring-indigo-500 focus:border-indigo-500">
+                @error('email')
+                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <!-- Telepon -->
+            <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700">Nomor Telepon</label>
+                <input type="text" id="phone" name="phone" value="{{ old('phone') }}" required
+                    placeholder="Contoh: 081234567890"
+                    class="mt-1 block w-full px-4 py-2 text-sm border border-gray-300 rounded-lg bg-white focus:ring-indigo-500 focus:border-indigo-500">
+                @error('phone')
+                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
 
-            <form class="space-y-6" action="{{ route('payment.store') }}" method="POST">
-                @csrf
-
-
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
-                    <div class="mt-1">
-                        <input id="name" name="name" type="text" value="{{ old('name') }}" required autofocus
-                            class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    </div>
-                    @error('name')
-                        <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
-                    @enderror
+            <!-- Jumlah -->
+            <div>
+                <label for="amount" class="block text-sm font-medium text-gray-700">Jumlah Pembayaran (Rp)</label>
+                <div class="relative mt-1">
+                    <span class="absolute left-3 top-2.5 text-gray-500 text-sm">Rp</span>
+                    <input type="number" id="amount" name="amount" min="1" value="{{ old('amount') }}"
+                        required placeholder="Contoh: 100000"
+                        class="pl-10 pr-4 py-2 w-full text-sm border border-gray-300 rounded-lg bg-white focus:ring-indigo-500 focus:border-indigo-500">
                 </div>
+                @error('amount')
+                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
 
 
-
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <div class="mt-1">
-                        <input id="email" name="email" type="email" value="{{ old('email') }}" required
-                            class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    </div>
-                    @error('email')
-                        <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
-                    @enderror
-                </div>
-                <div>
-                    <label for="phone" class="block text-sm font-medium text-gray-700">Nomor Telepon</label>
-                    <div class="mt-1">
-                        <input id="phone" name="phone" type="text" value="{{ old('phone') }}" required
-                            class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    </div>
-                    @error('phone')
-                        <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
-                    @enderror
-                </div>
-                <div>
-                    <label for="amount" class="block text-sm font-medium text-gray-700">Jumlah (Rp)</label>
-                    <div class="mt-1 relative rounded-md shadow-sm">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <span class="text-gray-500 sm:text-sm">Rp</span>
-                        </div>
-                        <input id="amount" name="amount" type="number" value="{{ old('amount') }}" required
-                            min="1"
-                            class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-3 sm:text-sm border-gray-300 rounded-md">
-                    </div>
-                    @error('amount')
-                        <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
-                    @enderror
-                </div>
-
-
-                <div>
-                    <button type="submit"
-                        class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        Proses Pembayaran
-                    </button>
-                </div>
-            </form>
-        </div>
+            <!-- Tombol Submit -->
+            <div>
+                <button type="submit"
+                    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 rounded-lg text-sm shadow transition duration-200">
+                    Proses Pembayaran
+                </button>
+            </div>
+        </form>
     </div>
-@endsection
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

@@ -11,6 +11,8 @@ use App\Http\Controllers\Auth\RegistController;
 use App\Http\Controllers\Auth\LoginAdminController;
 use App\Http\Controllers\ContentController;
 
+use App\Http\Controllers\PaymentController;
+
 // Route untuk homepage
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
@@ -101,7 +103,7 @@ Route::get('/payment/success/{orderId}', [PaymentController::class, 'success'])
 
 
 Route::post('/payment/ajax-callback', [PaymentController::class, 'callback'])
-    ->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]) // atau exclude CSRF di VerifyCsrfToken
+    ->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class])
     ->name('payment.ajax-callback');
 
 
@@ -111,3 +113,6 @@ Route::get('/payments/history', [PaymentController::class, 'history'])
 
 Route::get('/payments/{orderId}', [PaymentController::class, 'detail'])
     ->name('payment.detail');
+
+Route::post('/payment/snap', [PaymentController::class, 'createSnap'])->name('payment.snap.create');
+
