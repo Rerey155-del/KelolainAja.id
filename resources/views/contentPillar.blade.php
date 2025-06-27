@@ -112,7 +112,7 @@
                                         <tr>
                                             <td colspan="4" class="text-center py-4">
                                                 <p class="text-gray-600">Tidak ada content pillar yg tersedia.</p>
-                                                <button onclick="window.localtion.href='/'" class="mt-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">Beli Paket</button>
+                                                <button onclick="window.location.href='/'" class="mt-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">Beli Paket</button>
                                             </td>
                                         </tr>
                                     @endif

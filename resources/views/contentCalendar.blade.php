@@ -14,6 +14,7 @@
     <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 
 <body id="page-top">
@@ -85,7 +86,6 @@
             </nav>
             <br>
             <div class="container-fluid">
-                
                 <div class="card shadow mb-4">
                     <div class="card-body">
                         <div class="table-responsive">
@@ -103,19 +103,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($calendars as $calendar)
+                                    @if ($calendars->isNotEmpty())
+                                        @foreach ($calendars as $calendar)
+                                            <tr>
+                                                <td>{{ $calendar->name }}</td>
+                                                <td>{{ $calendar->status }}</td>
+                                                <td>{{ $calendar->category }}</td>
+                                                <td>{{ $calendar->attachments ?? '-' }}</td>
+                                                <td>{{ $calendar->upload_for ?? '-' }}</td>
+                                                <td><a href="{{ $calendar->reference }}" target="_blank" class="text-blue-600 hover:underline">{{ $calendar->reference ?? 'N/A' }}</a></td>
+                                                <td>{{ $calendar->format }}</td>
+                                                <td>{{ $calendar->assignee }}</td>
+                                            </tr>
+                                        @endforeach
+                                    @else
                                         <tr>
-                                            <td>{{ $calendar->name }}</td>
-                                            <td>{{ $calendar->status }}</td>
-                                            <td>{{ $calendar->category }}</td>
-                                            <td>{{ $calendar->attachments ?? '-' }}</td>
-                                            <td>{{ $calendar->upload_for ?? '-' }}</td>
-                                            <td><a href="{{ $calendar->reference }}" target="_blank" class="text-blue-600 hover:underline">{{ $calendar->reference ?? 'N/A' }}</a></td>
-                                            <td>{{ $calendar->format }}</td>
-                                            <td>{{ $calendar->assignee }}</td>
-
+                                            <td colspan="8" class="text-center py-4">
+                                                <p class="text-gray-600">No content calendars available.</p>
+                                                <button href="window.loca\on" class="mt-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">Buy Service</button>
+                                            </td>
                                         </tr>
-                                    @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -134,5 +142,31 @@
     <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
     <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('buyServiceBtn')?.addEventListener('click', function() {
+            Swal.fire({
+                title: 'Buy Service',
+                text: 'Would you like to purchase a service to unlock content calendars?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Buy Now',
+                cancelButtonText: 'No, Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                  
+                    window.location.href = '/buy-service'; // Sesuaikan dengan rute pembelian
+                }
+            });
+        });
+
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+    </script>
 </body>
+
 </html>
