@@ -24,11 +24,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/contentCalendar', [ContentController::class, 'calendar'])->name('user.contentCalendar');
 });
 
-Route::get('/admin/contentUsers', function(){
+Route::get('/admin/contentUsers', function () {
     return view('/admin/contentPillar');
 });
 
-Route::get('/admin/contentCalendar', function(){
+Route::get('/admin/contentCalendar', function () {
     return view('/admin/contentCalendar');
 });
 
@@ -68,7 +68,7 @@ Route::middleware(['auth:admin'])->group(function () {
 
     Route::get('/admin/users', [UserController::class, 'user'])->name('admin.pengguna');
     Route::get('/admin/videos', [VideoController::class, 'index'])->name('admin.videos');
-     // Tetap untuk menyimpan video via POST
+    // Tetap untuk menyimpan video via POST
     Route::post('/upload', [VideoController::class, 'store'])->name('video.upload');
 
     Route::post('/logout/admin', [LoginAdminController::class, 'logout'])->name('admin.logout');
@@ -87,3 +87,27 @@ Route::get('/package/{id}', function ($id) {
     $paket = Package::findOrFail($id);
     return view('layout.packageDescription', compact('paket'));
 })->name('deskripsiPaket');
+
+
+// pembayaran
+Route::get('/payment', [PaymentController::class, 'create'])->name('payment.form');
+Route::post('/payment', [PaymentController::class, 'store'])->name('payment.store');
+
+
+Route::post('/payment/callback', [PaymentController::class, 'callback'])
+    ->name('payment.callback');
+Route::get('/payment/success/{orderId}', [PaymentController::class, 'success'])
+    ->name('payment.success');
+
+
+Route::post('/payment/ajax-callback', [PaymentController::class, 'callback'])
+    ->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]) // atau exclude CSRF di VerifyCsrfToken
+    ->name('payment.ajax-callback');
+
+
+Route::get('/payments/history', [PaymentController::class, 'history'])
+    ->name('payment.history');
+
+
+Route::get('/payments/{orderId}', [PaymentController::class, 'detail'])
+    ->name('payment.detail');

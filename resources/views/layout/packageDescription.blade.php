@@ -22,7 +22,8 @@
                         <div class="card w-full md:w-96 bg-[#FF4655] shadow-2xl">
                             <div class="card-body p-6 md:p-12">
                                 <h2 class="text-2xl md:text-3xl font-bold text-white">{{ $paket->name }}</h2>
-                                <ul class="mt-4 md:mt-6 flex flex-col gap-2 md:gap-4 text-base md:text-lg text-white list-disc list-inside mb-6 md:mb-10">
+                                <ul
+                                    class="mt-4 md:mt-6 flex flex-col gap-2 md:gap-4 text-base md:text-lg text-white list-disc list-inside mb-6 md:mb-10">
                                     @foreach (explode(',', $paket->description) as $desc)
                                         <li class="marker:text-white">{{ trim($desc) }}</li>
                                     @endforeach
@@ -32,7 +33,8 @@
                                         {{ $paket->price }}</h2>
                                     <h2 class="text-white text-2xl md:text-4xl font-bold">{{ $paket->price }}</h2>
                                 </div>
-                                <p class="text-white text-center mt-4 text-sm md:text-md font-bold">1x Revisi/item | Add-on (Revisi) 10k</p>
+                                <p class="text-white text-center mt-4 text-sm md:text-md font-bold">1x Revisi/item |
+                                    Add-on (Revisi) 10k</p>
                             </div>
                         </div>
                     </div>
@@ -46,22 +48,14 @@
                 <p class="text-[#FF4655] mb-4">Harga : Rp.{{ $paket->price }}</p>
 
                 <p class="text-black">Pesan :</p>
-                <input type="text" placeholder="Accent" class="input border-[#FF4655] bg-white w-full md:w-[33rem] mt-2 mb-6" />
+                <input type="text" placeholder="Accent"
+                    class="input border-[#FF4655] bg-white w-full md:w-[33rem] mt-2 mb-6" />
 
-                <p class="font-bold text-black text-xl md:text-2xl mb-4">Metode Pembayaran:</p>
-                <div class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
-                    <button class="btn btn-outline w-full md:w-auto" id="btnBank">Transfer Bank</button>
-                    <button class="btn btn-outline w-full md:w-auto" id="btnEwallet">E-Wallet</button>
-                </div>
-
-                <!-- E-Wallet Option -->
-                <div class="space-y-2 mt-4 hidden" id="eWallet">
-                  name('payment.form');
-                </div>
-
-                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 mt-8">
-                    <button class="btn btn-outline w-full md:w-auto">Rp.{{ $paket->price }}</button>
-                    <button class="btn btn-success w-full md:w-auto" id="orderButton">Buat Pesanan</button>
+                <div class="flex space-x-4">
+                    <a href="{{ route('payment.form') }}"
+                        class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded shadow">
+                        Buat Pembayaran
+                    </a>
                 </div>
             </div>
         </div>
@@ -128,4 +122,5 @@
         @endif
     });
 </script>
+
 </html>
