@@ -54,30 +54,9 @@
                     <button class="btn btn-outline w-full md:w-auto" id="btnEwallet">E-Wallet</button>
                 </div>
 
-                <!-- Bank Option -->
-                <div class="space-y-2 mt-4 hidden" id="transferBank">
-                    <p class="font-semibold">Pilih Bank :</p>
-                    @foreach (['bca' => 'BCA', 'mandiri' => 'Mandiri', 'bni' => 'BNI', 'bri' => 'BRI', 'bsi' => 'BSI'] as $value => $label)
-                        <label class="flex items-center space-x-2 cursor-pointer">
-                            <input type="radio" name="bank" value="{{ $value }}" class="hidden peer">
-                            <div class="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-red-500 peer-checked:bg-red-500"></div>
-                            <img src="/img/{{ $label }}.png" alt="{{ $label }}" class="w-10 md:w-12">
-                            <span>Bank {{ $label }}</span>
-                        </label>
-                    @endforeach
-                </div>
-
                 <!-- E-Wallet Option -->
                 <div class="space-y-2 mt-4 hidden" id="eWallet">
-                    <p class="font-semibold">Pilih E-wallet :</p>
-                    @foreach (['gopay' => 'Gopay', 'dana' => 'Dana', 'ovo' => 'OVO'] as $img => $name)
-                        <label class="flex items-center space-x-2 cursor-pointer">
-                            <input type="radio" name="ewallet" value="{{ $img }}" class="hidden peer">
-                            <div class="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-red-500 peer-checked:bg-red-500"></div>
-                            <img src="/img/{{ $img }}.png" alt="{{ $name }}" class="w-10 md:w-12">
-                            <span>{{ $name }}</span>
-                        </label>
-                    @endforeach
+                  name('payment.form');
                 </div>
 
                 <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 mt-8">
@@ -92,18 +71,17 @@
 <script>
     AOS.init();
 
-    // Check if user is not logged in
+    // Check if user is not logged in on page load
     @if (!Auth::check())
         document.addEventListener('DOMContentLoaded', function() {
             Swal.fire({
-                title: 'Please Login',
-                text: 'You need to login to proceed with the order.',
+                title: 'Login',
+                text: 'kamu butuh login jika ingin memesan paket ini', //
                 icon: 'warning',
-                showCancelButton: true,
                 confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Login Now',
-                cancelButtonText: 'Cancel'
+                confirmButtonText: 'Login sekarang',
+                allowOutsideClick: false,
+                allowEscapeKey: false
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = '{{ route('login') }}';
@@ -131,7 +109,9 @@
                 text: 'You need to login to place an order.',
                 icon: 'warning',
                 confirmButtonColor: '#3085d6',
-                confirmButtonText: 'Login Now'
+                confirmButtonText: 'Login Now',
+                allowOutsideClick: false,
+                allowEscapeKey: false
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = '{{ route('login') }}';
