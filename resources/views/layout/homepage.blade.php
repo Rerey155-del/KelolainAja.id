@@ -243,7 +243,7 @@
                                                 <h2 class="text-black font-bold text-lg line-through decoration-yellow-400">
                                                     Rp.{{ $package->price }}
                                                 </h2>
-                                                <h2 class="text-white text-3xl font-bold">Rp.{{ $package->price }}</h2>
+                                                <h2 class="text-white text-3xl font-bold">{{ number_format($package->price, 0, ',', '.') }}</h2>
                                             </div>
                                         </div>
                                         <div class="mt-6">
@@ -327,7 +327,7 @@
                                     </ul>
                                     <div class="flex justify-center gap-x-4">
                                         <h2 class="text-black font-bold text-xl line-through decoration-[#FF4655]s">
-                                            {{ $package->price }}
+                                            {{ number_format($package->price, 0, ',', '.') }}
                                         </h2>
                                         <h2 class="text-[#FF4655] text-3xl font-bold">{{ $package->price }}</h2>
                                     </div>
