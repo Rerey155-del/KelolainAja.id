@@ -240,10 +240,12 @@
                                                 @endforeach
                                             </ul>
                                             <div class="flex justify-center gap-x-4">
-                                                <h2 class="text-black font-bold text-lg line-through decoration-yellow-400">
-                                                    Rp.{{ $package->price }}
+                                                <h2
+                                                    class="text-black font-bold text-lg line-through decoration-yellow-400">
+                                                    Rp.{{ number_format($package->original_price ?? $package->price + 100000, 0, ',', '.') }}
                                                 </h2>
-                                                <h2 class="text-white text-3xl font-bold">{{ number_format($package->price, 0, ',', '.') }}</h2>
+                                                <h2 class="text-white text-3xl font-bold">
+                                                    Rp.{{ number_format($package->price, 0, ',', '.') }}</h2>
                                             </div>
                                         </div>
                                         <div class="mt-6">
@@ -272,7 +274,8 @@
                             <div class="card-body p-12 flex flex-col justify-between h-full">
                                 <div>
                                     <h2 class="text-3xl font-bold text-white">Paket Custom<br>(Media Sosial)</h2>
-                                    <ul class="mt-6 flex flex-col gap-4 text-lg text-white list-disc list-inside mb-10">
+                                    <ul
+                                        class="mt-6 flex flex-col gap-4 text-lg text-white list-disc list-inside mb-10">
                                         <li class="text-xl marker:text-white">Custom Konten Sesuai Permintaan</li>
                                         <li class="text-xl marker:text-white">Jumlah Feeds, Reels, dan Stories Bebas
                                         </li>
@@ -318,7 +321,8 @@
                             <div class="card md:w-96 bg-white shadow-2xl ">
                                 <div class="card-body p-12">
                                     <h2 class="text-3xl font-bold text-[#FF4655]">{{ $package->name }}</h2>
-                                    <ul class="mt-6 flex flex-col gap-4 text-lg text-[#FF4655] list-disc list-inside mb-10">
+                                    <ul
+                                        class="mt-6 flex flex-col gap-4 text-lg text-[#FF4655] list-disc list-inside mb-10">
                                         @foreach (explode(',', $package->description) as $desc)
                                             <li class="text-xl marker:text-xl marker:text-[#FF4655]">
                                                 {{ trim($desc) }}
@@ -326,10 +330,10 @@
                                         @endforeach
                                     </ul>
                                     <div class="flex justify-center gap-x-4">
-                                        <h2 class="text-black font-bold text-xl line-through decoration-[#FF4655]s">
-                                            {{ number_format($package->price, 0, ',', '.') }}
+                                        <h2 class="text-black font-bold text-lg line-through decoration-[#FF4655]">
+                                            Rp.{{ number_format($package->original_price ?? $package->price + 100000, 0, ',', '.') }}
                                         </h2>
-                                        <h2 class="text-[#FF4655] text-3xl font-bold">{{ $package->price }}</h2>
+                                        <h2 class="text-[#FF4655] text-3xl font-bold">     Rp.{{ number_format($package->price, 0, ',', '.') }}</h2>
                                     </div>
                                     <div class="flex justify-center mt-6">
                                         <button onclick="window.location.href='/package/{{ $package->id }}'"

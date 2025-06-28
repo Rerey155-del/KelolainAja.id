@@ -41,11 +41,11 @@
                                     @endforeach
                                 </ul>
                                 <div class="flex justify-center gap-x-4">
-                                    <h2 class="text-black font-bold text-xl md:text-2xl line-through decoration-white">
-                                        Rp {{ number_format($paket->original_price ?? $paket->price + 100000, 0, ',', '.') }}
+                                    <h2 class="text-black font-bold text-xl md:text-xl line-through decoration-white">
+                                        Rp.{{ number_format($paket->original_price ?? $paket->price + 100000, 0, ',', '.') }}
                                     </h2>
-                                    <h2 class="text-white text-2xl md:text-4xl font-bold">
-                                        Rp {{ number_format($paket->price, 0, ',', '.') }}
+                                    <h2 class="text-white text-3xl md:text-3xl font-bold">
+                                        Rp.{{ number_format($paket->price, 0, ',', '.') }}
                                     </h2>
                                 </div>
                                 <p class="text-white text-center mt-4 text-sm md:text-md font-bold">
