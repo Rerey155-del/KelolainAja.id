@@ -174,7 +174,7 @@
                                 </div>
                                 <div>
                                     <h2 class="card-title">Konsultasi</h2>
-                                    <p>Diskusi bersama tim untuk hasil yang sesuai visi.</p>
+                                    <p>Diskusi bersama tim untuk hasil yang sesuai yang diinginkan</p>
                                 </div>
                             </div>
                         </div>
@@ -185,7 +185,7 @@
                                 </div>
                                 <div>
                                     <h2 class="card-title">Pengiriman Hasil</h2>
-                                    <p>Dapatkan hasil desain dengan gratis 5 kali revisi.</p>
+                                    <p>Dapatkan hasil desain yang terbaik</p>
                                 </div>
                             </div>
                         </div>
@@ -296,7 +296,7 @@
                                         <div class="mt-6">
                                             <div class="flex justify-center">
                                                 <button
-                                                    onclick="window.location.href='{{ route('deskripsiPaket', $custom->id) }}'"
+                                                    onclick="window.location.href='{{ route('deskripsiPaket', $package->id) }}'"
                                                     class="bg-white text-[#FF4655] px-6 py-3 rounded-lg w-80 font-semibold hover:bg-red-600 hover:text-white transition">
                                                     Pesan Sekarang
                                                 </button>
