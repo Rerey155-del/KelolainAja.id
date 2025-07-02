@@ -3,9 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    use HasApiTokens, HasFactory, Notifiable;
+
     /**
      * The primary key associated with the table.
      *
@@ -27,6 +32,32 @@ class User extends Authenticatable
      */
     protected $keyType = 'int';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'phone',        // jika ada
+        'description',  // jika ada
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays (e.g., when serialized).
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * The relationships to content pillars and calendars.
+     */
     public function contentPillars()
     {
         return $this->hasMany(ContentPillar::class, 'user_id');
