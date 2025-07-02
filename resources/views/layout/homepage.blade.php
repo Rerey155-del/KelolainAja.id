@@ -269,44 +269,46 @@
 
                 <!-- CUSTOM SECTION (PINDAHKAN KELUAR DARI #standar-section) -->
                 <div id="custom-section" class="hidden mt-10">
-                    <div class="flex justify-center">
-                        @foreach ($customPackages as $package)
-                            <div class="card md:w-96 bg-[#FF4655] shadow-2xl h-full">
-                                <div class="card-body p-12 flex flex-col justify-between h-full">
-                                    <div>
-                                        <h2 class="text-3xl font-bold text-white">{{ $package->name }}</h2>
-                                        <ul
-                                            class="mt-6 flex flex-col gap-4 text-lg text-white list-disc list-inside mb-10">
-                                            @foreach (explode(',', $package->description) as $desc)
-                                                <li class="text-xl marker:text-xl marker:text-white">
-                                                    {{ trim($desc) }}
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                        <div class="flex justify-center gap-x-4">
-                                            <h2
-                                                class="text-black font-bold text-lg line-through decoration-yellow-400">
-                                                Rp.{{ number_format($package->original_price ?? $package->price + 100000, 0, ',', '.') }}
-                                            </h2>
-                                            <h2 class="text-white text-3xl font-bold">
-                                                Rp.{{ number_format($package->price, 0, ',', '.') }}</h2>
+                    <div class="container p-8 mx-auto md:p-10 mt-[-2rem]">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+                            @foreach ($customPackages as $package)
+                                <div class="card md:w-96 bg-[#FF4655] shadow-2xl h-full">
+                                    <div class="card-body p-12 flex flex-col justify-between h-full">
+                                        <div>
+                                            <h2 class="text-3xl font-bold text-white">{{ $package->name }}</h2>
+                                            <ul
+                                                class="mt-6 flex flex-col gap-4 text-lg text-white list-disc list-inside mb-10">
+                                                @foreach (explode(',', $package->description) as $desc)
+                                                    <li class="text-xl marker:text-xl marker:text-white">
+                                                        {{ trim($desc) }}
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                            <div class="flex justify-center gap-x-4">
+                                                <h2
+                                                    class="text-black font-bold text-lg line-through decoration-yellow-400">
+                                                    Rp.{{ number_format($package->original_price ?? $package->price + 100000, 0, ',', '.') }}
+                                                </h2>
+                                                <h2 class="text-white text-3xl font-bold">
+                                                    Rp.{{ number_format($package->price, 0, ',', '.') }}</h2>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="mt-6">
-                                        <div class="flex justify-center">
-                                            <button
-                                                onclick="window.location.href='{{ route('deskripsiPaket', $package->id) }}'"
-                                                class="bg-white text-[#FF4655] px-6 py-3 rounded-lg w-80 font-semibold hover:bg-red-600 hover:text-white transition">
-                                                Pesan Sekarang
-                                            </button>
+                                        <div class="mt-6">
+                                            <div class="flex justify-center">
+                                                <button
+                                                    onclick="window.location.href='{{ route('deskripsiPaket', $custom->id) }}'"
+                                                    class="bg-white text-[#FF4655] px-6 py-3 rounded-lg w-80 font-semibold hover:bg-red-600 hover:text-white transition">
+                                                    Pesan Sekarang
+                                                </button>
+                                            </div>
+                                            <p class="text-white text-md text-center font-bold mt-4">
+                                                1x Revisi/item | Add-on (Revisi) 10k
+                                            </p>
                                         </div>
-                                        <p class="text-white text-md text-center font-bold mt-4">
-                                            1x Revisi/item | Add-on (Revisi) 10k
-                                        </p>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>

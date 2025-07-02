@@ -10,7 +10,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegistController;
 use App\Http\Controllers\Auth\LoginAdminController;
 use App\Http\Controllers\ContentController;
-
+use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PaymentController;
 
 // Route untuk homepage
@@ -84,11 +84,18 @@ Route::get('/upload', function () {
     return view('upload');
 });
 
-// rute untuk menampilkan deskripsi isi data
-Route::get('/package/{id}', function ($id) {
-    $paket = Package::findOrFail($id);
-    return view('layout.packageDescription', compact('paket'));
-})->name('deskripsiPaket');
+
+
+// SPA untuk kategori (Media Sosial, Desain, Custom)
+Route::get('/paket/kategori/{category}', [PaketController::class, 'showPackagesByCategory'])->name('paket.kategori');
+
+// SPA untuk custom package khusus
+Route::get('/paket/custom', [PaketController::class, 'showCustomPackages'])->name('paket.custom');
+
+// Detail deskripsi satu paket (baik dari tabel packages atau custompackages)
+Route::get('/package/{id}', [PaketController::class, 'show'])->name('deskripsiPaket');
+
+
 
 
 // pembayaran
