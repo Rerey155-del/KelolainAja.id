@@ -26,9 +26,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/contentCalendar', [ContentController::class, 'calendar'])->name('user.contentCalendar');
 });
 
-Route::get('/admin/contentUsers', function () {
-    return view('/admin/contentPillar');
-});
+// pemanggilan contentUsers
+Route::get('/admin/contentUsers', [ContentController::class, 'showContentUsers'])->name('admin.contentUsers');
 
 Route::get('/admin/contentCalendar', function () {
     return view('/admin/contentCalendar');
@@ -94,6 +93,7 @@ Route::get('/paket/custom', [PaketController::class, 'showCustomPackages'])->nam
 
 // Detail deskripsi satu paket (baik dari tabel packages atau custompackages)
 Route::get('/package/{id}', [PaketController::class, 'show'])->name('deskripsiPaket');
+
 
 
 

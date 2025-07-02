@@ -4,6 +4,7 @@
     use App\Models\Admin;
     use App\Models\ContentPillar;
     use App\Models\ContentCalendar;
+    use App\Models\Order;
 
     $totalVideos = Video::count(); // Hitung jumlah video
     $totalUsers = User::count(); // Hitung jumlah user
@@ -11,6 +12,8 @@
     $users = User::all(); // Ambil semua pengguna untuk dropdown
     $allPillars = ContentPillar::all(); // Ambil semua data Content Pillar
     $allCalendars = ContentCalendar::all(); // Ambil semua data Content Calendar
+
+    $allOrders = Order::all();
 @endphp
 
 <!DOCTYPE html>
@@ -103,8 +106,8 @@
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small"
+                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -171,85 +174,41 @@
                             class="mt-1 block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md bg-[#FF4655] text-white">
                             <option value="">Pilih Akun</option>
                             @foreach ($users as $user)
-                                <option value="{{ $user->user_id }}" class="bg-[#FF4655] text-white">{{ $user->name }}
+                                <option value="{{ $user->user_id }}" class="bg-[#FF4655] text-white">
+                                    {{ $user->name }}
                                 </option>
                             @endforeach
                         </select>
                     </div>
 
-                    <!-- Tabel Content Pillar -->
-                    <div id="pillarTable" class="table-container">
+                    <!-- Tabel Orders -->
+                    <div id="orderTable" class="table-container">
                         <div class="card shadow mb-4">
                             <div class="card-body">
-                                <h3 class="text-xl font-bold mb-2">Content Pillar</h3>
+                                <h3 class="text-xl font-bold mb-2">Order History</h3>
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered" id="orderTableElement" width="100%"
+                                        cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Pillar Name</th>
-                                                <th>Description</th>
-                                                <th>Percentage</th>
-                                                <th>Color</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="pillarTableBody">
-                                            @foreach ($allPillars as $pillar)
-                                                @if ($pillar->user_id == (isset($selectedUserId) ? $selectedUserId : ''))
-                                                    <tr>
-                                                        <td>{{ $pillar->name }}</td>
-                                                        <td>{{ $pillar->description }}</td>
-                                                        <td>{{ $pillar->percentage }}%</td>
-                                                        <td><span class="inline-block w-4 h-4 rounded-full"
-                                                                style="background-color: {{ $pillar->color }};"></span></td>
-                                                        <td><a href="#" class="text-blue-600 hover:underline">Edit</a> <a
-                                                                href="#" class="text-red-600 hover:underline ml-2">Delete</a>
-                                                        </td>
-                                                    </tr>
-                                                @endif
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tabel Content Calendar -->
-                    <div id="calendarTable" class="table-container">
-                        <div class="card shadow mb-4">
-                            <div class="card-body">
-                                <h3 class="text-xl font-bold mb-2">Content Calendar</h3>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
+                                                <th>Order ID</th>
+                                                <th>User ID</th>
+                                                <th>Total</th>
                                                 <th>Status</th>
-                                                <th>Category</th>
-                                                <th>Action</th>
-
+                                                <th>Payment Type</th>
+                                                <th>Created At</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="calendarTableBody">
-                                            @foreach ($allCalendars as $calendar)
-                                                @if ($calendar->user_id == (isset($selectedUserId) ? $selectedUserId : ''))
+                                        <tbody id="orderTableBody">
+                                            @foreach ($allOrders as $order)
+                                                @if ($order->user_id == (isset($selectedUserId) ? $selectedUserId : ''))
                                                     <tr>
-                                                        <td>{{ $calendar->name }}</td>
-                                                        <td>{{ $calendar->status }}</td>
-                                                        <td>{{ $calendar->category }}</td>
-                                                        <td>
-                                                            @if($calendar->attachments)
-                                                                <img src="{{ asset('storage/' . $calendar->attachments) }}"
-                                                                    alt="{{ $calendar->name }}"
-                                                                    style="max-width: 100px; max-height: 100px;">
-                                                            @else
-                                                                <span>No Image</span>
-                                                            @endif
-                                                        </td>
-                                                        <td><a href="#" class="text-blue-600 hover:underline">Edit</a> <a
-                                                                href="#" class="text-red-600 hover:underline ml-2">Delete</a>
-                                                        </td>
+                                                        <td>{{ $order->id }}</td>
+                                                        <td>{{ $order->user_id }}</td>
+                                                        <td>{{ $order->gross_amount }}</td>
+                                                        <td>{{ $order->transaction_status }}</td>
+                                                        <td>{{ $order->payment_type }}</td>
+                                                        <td>{{ $order->created_at }}</td>
                                                     </tr>
                                                 @endif
                                             @endforeach
@@ -259,6 +218,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <!-- /.container-fluid -->
             </div>
@@ -294,7 +254,7 @@
 
     <!-- Tambahkan JavaScript untuk memperbarui tabel -->
     <script>
-        document.getElementById('userSelect').addEventListener('change', function () {
+        document.getElementById('userSelect').addEventListener('change', function() {
             const userId = this.value;
             const pillarTable = document.getElementById('pillarTable');
             const calendarTable = document.getElementById('calendarTable');

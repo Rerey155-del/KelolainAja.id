@@ -46,4 +46,13 @@ class ContentController extends Controller
             'calendars' => $calendars,
         ]);
     }
+
+    public function showContentUsers()
+    {
+        $users = User::all();
+        $allPillars = ContentPillar::all();
+        $allCalendars = ContentCalendar::all();
+
+        return view('admin.contentPillar', compact('users', 'allPillars', 'allCalendars'));
+    }
 }
