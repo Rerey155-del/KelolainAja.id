@@ -16,17 +16,17 @@ class UserSeeder extends Seeder
 
 
         User::firstOrCreate(
-            ['email' => 'Reyhanganteng@gmail.com'], // Cek apakah email sudah ada
+            ['email' => 'Niranta123@outlook.com'], // Cek apakah email sudah ada
             [        
                 'name' => 'Reyhan',
-                'password' => Hash::make('Reyhanmaulana123'),
+                'password' => Hash::make('12345678'),
             ]
         );
         User::firstOrCreate(
-            ['email' => 'Rerey@gmail.com'], // Cek apakah email sudah ada
+            ['email' => 'SabaiMinangKabau123@gmail.com'], // Cek apakah email sudah ada
             [
                 'name' => 'Rerey',
-                'password' => Hash::make('Reyhanmaulana123'),
+                'password' => Hash::make('12345678'),
             ]
         );
     }
