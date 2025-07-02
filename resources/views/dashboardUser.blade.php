@@ -159,13 +159,50 @@
                     </div>
                     <div
                         class="glass-card hover-scale rounded-xl p-6 text-center bg-white shadow-lg transition-transform duration-300 hover:shadow-xl">
+                        <!-- Ikon Kalender -->
                         <div
                             class="gradient-bg w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 bg-gradient-to-r from-blue-400 to-blue-600">
                             <i class="fas fa-calendar text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800" id="totalContent">10</h3>
-                        <p class="text-gray-600">Content Calendar</p>
+
+                        <!-- Total Content -->
+                        <h3 class="text-2xl font-bold text-gray-800" id="totalContent">5</h3>
+                        <p class="text-gray-600 mb-4">Scheduled Content</p>
+
+                        <!-- Statistik Konten: Feed, Reels, Story -->
+                        <div class="grid grid-cols-3 gap-2 text-sm">
+                            <!-- Feed -->
+                            <div class="border rounded-lg p-2 text-center">
+                                <div class="text-red-600 text-xl mb-1">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                                <div class="font-semibold">0/8</div>
+                                <div class="text-gray-600">Feed</div>
+                                <div class="text-red-500 text-xs mt-1">Not Started</div>
+                            </div>
+
+                            <!-- Reels -->
+                            <div class="border rounded-lg p-2 text-center">
+                                <div class="text-red-600 text-xl mb-1">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <div class="font-semibold">0/3</div>
+                                <div class="text-gray-600">Reels</div>
+                                <div class="text-red-500 text-xs mt-1">Not Started</div>
+                            </div>
+
+                            <!-- Story -->
+                            <div class="border rounded-lg p-2 text-center">
+                                <div class="text-red-600 text-xl mb-1">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="font-semibold">0/4</div>
+                                <div class="text-gray-600">Story</div>
+                                <div class="text-red-500 text-xs mt-1">Not Started</div>
+                            </div>
+                        </div>
                     </div>
+
                     <div
                         class="glass-card hover-scale rounded-xl p-6 text-center bg-white shadow-lg transition-transform duration-300 hover:shadow-xl">
                         <div
@@ -174,6 +211,15 @@
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800" id="totalRevenue">$0</h3>
                         <p class="text-gray-600">Total Revenue</p>
+                    </div>
+                    <div
+                        class="glass-card hover-scale rounded-xl p-6 text-center bg-white shadow-lg transition-transform duration-300 hover:shadow-xl">
+                        <div
+                            class="gradient-bg w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 bg-gradient-to-r from-purple-400 to-purple-600">
+                           <i class="fas fa-users text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800" id="totalRevenue">$0</h3>
+                        <p class="text-gray-600">Total Transaction</p>
                     </div>
                 </div>
                 <div class="bg-white rounded-xl shadow-lg p-6 mb-8">

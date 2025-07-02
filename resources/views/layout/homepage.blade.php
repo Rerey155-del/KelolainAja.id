@@ -48,7 +48,7 @@
             <div data-aos="fade-up" class="grid grid-cols-1  md:grid-cols-3 gap-y-8 gap-x-6 px-4">
                 <div class="card bg-white shadow-xl rounded-xl w-full max-w-sm mx-auto">
                     <figure class="p-3">
-                        <img src="/img/foto1.png" alt="Manajemen Media Sosial"
+                        <img src="/img/feed.jpg" alt="Manajemen Media Sosial"
                             class="rounded-xl w-full h-48 object-cover" />
                     </figure>
                     <div class="card-body px-4 pb-4">
@@ -62,7 +62,7 @@
 
                 <div class="card bg-white shadow-xl rounded-xl w-full max-w-sm mx-auto">
                     <figure class="p-3">
-                        <img src="/img/foto2.png" alt="Layanan Desain" class="rounded-xl w-full h-48 object-cover" />
+                        <img src="/img/design.jpg" alt="Layanan Desain" class="rounded-xl w-full h-48 object-cover" />
                     </figure>
                     <div class="card-body px-4 pb-4">
                         <h2 class="card-title text-black text-lg mb-2">Layanan Desain</h2>
@@ -75,7 +75,7 @@
 
                 <div class="card bg-white shadow-xl rounded-xl w-full max-w-sm mx-auto">
                     <figure class="p-3">
-                        <img src="/img/foto3.png" alt="Manajemen E-commerce"
+                        <img src="/img/e-commerce.jpg" alt="Manajemen E-commerce"
                             class="rounded-xl w-full h-48 object-cover" />
                     </figure>
                     <div class="card-body px-4 pb-4">
@@ -270,37 +270,43 @@
                 <!-- CUSTOM SECTION (PINDAHKAN KELUAR DARI #standar-section) -->
                 <div id="custom-section" class="hidden mt-10">
                     <div class="flex justify-center">
-                        <div class="card md:w-96 bg-[#FF4655] shadow-2xl h-full">
-                            <div class="card-body p-12 flex flex-col justify-between h-full">
-                                <div>
-                                    <h2 class="text-3xl font-bold text-white">Paket Custom<br>(Media Sosial)</h2>
-                                    <ul
-                                        class="mt-6 flex flex-col gap-4 text-lg text-white list-disc list-inside mb-10">
-                                        <li class="text-xl marker:text-white">Custom Konten Sesuai Permintaan</li>
-                                        <li class="text-xl marker:text-white">Jumlah Feeds, Reels, dan Stories Bebas
-                                        </li>
-                                        <li class="text-xl marker:text-white">Brief & Diskusi Langsung</li>
-                                        <li class="text-xl marker:text-white">Bisa Multi Platform</li>
-                                    </ul>
-                                    <div class="flex justify-center gap-x-4">
-                                        <h2 class="text-black font-bold text-2xl line-through decoration-white">550000
-                                        </h2>
-                                        <h2 class="text-white text-4xl font-bold">550000</h2>
+                        @foreach ($customPackages as $package)
+                            <div class="card md:w-96 bg-[#FF4655] shadow-2xl h-full">
+                                <div class="card-body p-12 flex flex-col justify-between h-full">
+                                    <div>
+                                        <h2 class="text-3xl font-bold text-white">{{ $package->name }}</h2>
+                                        <ul
+                                            class="mt-6 flex flex-col gap-4 text-lg text-white list-disc list-inside mb-10">
+                                            @foreach (explode(',', $package->description) as $desc)
+                                                <li class="text-xl marker:text-xl marker:text-white">
+                                                    {{ trim($desc) }}
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                        <div class="flex justify-center gap-x-4">
+                                            <h2
+                                                class="text-black font-bold text-lg line-through decoration-yellow-400">
+                                                Rp.{{ number_format($package->original_price ?? $package->price + 100000, 0, ',', '.') }}
+                                            </h2>
+                                            <h2 class="text-white text-3xl font-bold">
+                                                Rp.{{ number_format($package->price, 0, ',', '.') }}</h2>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mt-6">
-                                    <div class="flex justify-center">
-                                        <button onclick="window.location.href='#'"
-                                            class="bg-white text-[#FF4655] px-6 py-3 rounded-lg w-80 font-semibold hover:bg-red-600 hover:text-white transition">
-                                            Hubungi Kami
-                                        </button>
+                                    <div class="mt-6">
+                                        <div class="flex justify-center">
+                                            <button
+                                                onclick="window.location.href='{{ route('deskripsiPaket', $package->id) }}'"
+                                                class="bg-white text-[#FF4655] px-6 py-3 rounded-lg w-80 font-semibold hover:bg-red-600 hover:text-white transition">
+                                                Pesan Sekarang
+                                            </button>
+                                        </div>
+                                        <p class="text-white text-md text-center font-bold mt-4">
+                                            1x Revisi/item | Add-on (Revisi) 10k
+                                        </p>
                                     </div>
-                                    <p class="text-white text-md text-center font-bold mt-4">
-                                        Revisi dan Konten Bisa Disesuaikan
-                                    </p>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -333,7 +339,8 @@
                                         <h2 class="text-black font-bold text-lg line-through decoration-[#FF4655]">
                                             Rp.{{ number_format($package->original_price ?? $package->price + 100000, 0, ',', '.') }}
                                         </h2>
-                                        <h2 class="text-[#FF4655] text-3xl font-bold">     Rp.{{ number_format($package->price, 0, ',', '.') }}</h2>
+                                        <h2 class="text-[#FF4655] text-3xl font-bold">
+                                            Rp.{{ number_format($package->price, 0, ',', '.') }}</h2>
                                     </div>
                                     <div class="flex justify-center mt-6">
                                         <button onclick="window.location.href='/package/{{ $package->id }}'"
