@@ -12,13 +12,14 @@ class CreateCustompackagesTable extends Migration
     public function up(): void
     {
         Schema::create('custompackages', function (Blueprint $table) {
-            $table->id(); // bigint + auto increment + primary
+            $table->id();
             $table->string('name');
-            $table->string('price');
+            $table->integer('price');
             $table->string('category');
-            $table->text('description')->nullable();
-            $table->timestamps(); // created_at + updated_at
+            $table->text('description')->nullable();;
+            $table->timestamps();
         });
+
     }
 
     /**
