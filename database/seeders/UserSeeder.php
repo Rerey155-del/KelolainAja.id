@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User; // Import model User dari App\Models
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
@@ -13,23 +13,28 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-
-
-        User::firstOrCreate(
-            ['email' => 'Niranta123@outlook.com'], // Cek apakah email sudah ada
-            [        
-                 'user_id' => 1,
-                'name' => 'Reyhan',
-                'password' => Hash::make('12345678'),
-            ]
-        );
-        User::firstOrCreate(    
-            ['email' => 'SabaiMinangKabau123@gmail.com'], // Cek apakah email sudah ada
+        // Data user untuk disisipkan
+        $users = [
             [
-                 'user_id' => 2,
-                'name' => 'Rerey',
+                'user_id' => 1,
+                'name' => 'NIRANTA',
+                'email' => 'Niranta123@outlook.com',
                 'password' => Hash::make('12345678'),
-            ]
-        );
+            ],
+            [
+                'user_id' => 2,
+                'name' => 'Rerey',
+                'email' => 'SabaiMinangKabau123@gmail.com',
+                'password' => Hash::make('12345678'),
+            ],
+        ];
+
+        // Simpan ke database jika belum ada
+        foreach ($users as $user) {
+            User::firstOrCreate(
+                ['email' => $user['email']], // cek unik berdasarkan email
+                $user
+            );
+        }
     }
 }
