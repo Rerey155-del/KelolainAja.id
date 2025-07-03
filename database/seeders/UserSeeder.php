@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('12345678'),
             ]
         );
-        User::firstOrCreate(
+        User::firstOrCreate(    
             ['email' => 'SabaiMinangKabau123@gmail.com'], // Cek apakah email sudah ada
             [
                  'user_id' => 2,
