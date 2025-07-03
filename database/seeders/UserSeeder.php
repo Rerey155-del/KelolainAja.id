@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
         User::firstOrCreate(
             ['email' => 'Niranta123@outlook.com'], // Cek apakah email sudah ada
             [        
+                 'user_id' => 1,
                 'name' => 'Reyhan',
                 'password' => Hash::make('12345678'),
             ]
@@ -25,6 +26,7 @@ class UserSeeder extends Seeder
         User::firstOrCreate(
             ['email' => 'SabaiMinangKabau123@gmail.com'], // Cek apakah email sudah ada
             [
+                 'user_id' => 2,
                 'name' => 'Rerey',
                 'password' => Hash::make('12345678'),
             ]
