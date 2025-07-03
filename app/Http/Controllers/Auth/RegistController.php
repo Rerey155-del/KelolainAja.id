@@ -16,7 +16,11 @@ class RegistController extends Controller
             'password' => 'required|confirmed|min:6',
         ]);
 
+        // Generate user_id acak 1 digit (0 sampai 9)
+        $randomUserId = rand(0, 9);
+
         User::create([
+            'user_id' => $randomUserId,
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -25,5 +29,3 @@ class RegistController extends Controller
         return redirect()->route('login')->with('success', 'Registrasi berhasil!');
     }
 }
-
-
