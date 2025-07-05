@@ -12,6 +12,8 @@ use App\Http\Controllers\Auth\LoginAdminController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PillarController;
+
 
 // Route untuk homepage
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
@@ -95,8 +97,13 @@ Route::get('/paket/custom', [PaketController::class, 'showCustomPackages'])->nam
 Route::get('/package/{id}', [PaketController::class, 'show'])->name('deskripsiPaket');
 
 
-
-
+//crud pillar
+Route::get('/pillars', [PillarController::class, 'index'])->name('pillars.index');
+Route::post('/pillars', [PillarController::class, 'store'])->name('pillars.store');
+Route::put('/pillars/{id}', [PillarController::class, 'update'])->name('pillars.update');
+Route::delete('/pillars/{id}', [PillarController::class, 'destroy'])->name('pillars.destroy');
+// Di routes/web.php
+Route::get('/admin/contentUsers', [PillarController::class, 'index'])->name('admin.contentUsers');
 
 // pembayaran
 Route::get('/payment', [PaymentController::class, 'create'])->name('payment.form');

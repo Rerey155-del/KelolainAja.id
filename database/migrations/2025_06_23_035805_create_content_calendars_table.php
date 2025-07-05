@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('content_calenders');
+        Schema::dropIfExists('content_calenders','user_id');
     }
-};
+};  

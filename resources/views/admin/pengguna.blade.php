@@ -87,7 +87,7 @@
                  <a class="nav-link collapsed" href="/admin/contentUsers" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Contant Mitra</span>
+                    <span>Content Mitra</span>
                 </a>
                 =
             </li>

@@ -296,7 +296,7 @@
                                         <div class="mt-6">
                                             <div class="flex justify-center">
                                                 <button
-                                                    onclick="window.location.href='{{ route('deskripsiPaket', $package->id) }}'"
+                                                    onclick="window.location.href='{{ route('deskripsiPaket', ['id' => $package->id, 'type' => 'custom']) }}'"
                                                     class="bg-white text-[#FF4655] px-6 py-3 rounded-lg w-80 font-semibold hover:bg-red-600 hover:text-white transition">
                                                     Pesan Sekarang
                                                 </button>
