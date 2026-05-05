@@ -29,10 +29,10 @@ class UserSeeder extends Seeder
             ],
         ];
 
-        // Simpan ke database jika belum ada
+        // Simpan ke database jika belum ada atau update jika ada perubahan
         foreach ($users as $user) {
-            User::firstOrCreate(
-                ['email' => $user['email']], // cek unik berdasarkan email
+            User::updateOrCreate(
+                ['user_id' => $user['user_id']], // cek unik berdasarkan user_id
                 $user
             );
         }

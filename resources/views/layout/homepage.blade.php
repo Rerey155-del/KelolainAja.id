@@ -45,7 +45,7 @@
                 <h1 class="card-title text-2xl font-bold">Layanan Kami</h1>
                 <p class="text-lg sm:text-md">Bisnis Sukses Kelola Tanpa Stress</p>
             </div>
-            <div data-aos="fade-up" class="grid grid-cols-1  md:grid-cols-3 gap-y-8 gap-x-6 px-4">
+            <div data-aos="fade-up" class="container mx-auto grid grid-cols-1  md:grid-cols-3 gap-y-8 gap-x-6 px-4">
                 <div class="card bg-white shadow-xl rounded-xl w-full max-w-sm mx-auto">
                     <figure class="p-3">
                         <img src="/img/feed.jpg" alt="Manajemen Media Sosial"
